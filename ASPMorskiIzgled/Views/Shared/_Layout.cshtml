@@ -1,0 +1,180 @@
+﻿@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ASPMorskiIzgled</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPMorskiIzgled.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    Морски Изглед
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="nav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Начало</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">За нас</a>
+                        </li>
+                    </ul>
+
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted">
+        <div class="container">
+            &copy; 2026 - Хотел Морски Изглед - Комфорт, спокойствие и морска гледка
+        </div>
+    </footer>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - ASPMorskiIzgled - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> *@
+
+
+@* NEW LAYOUT ==================================================================================== *@
+
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Морски Изглед</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPMorskiIzgled.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container header-container">
+                <a class="navbar-brand hotel-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" alt="Морски Изглед" class="brand-logo" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+
+
+                    <ul class="navbar-nav align-items-lg-center gap-lg-2">
+
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Начало</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about-hotel">За хотела</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Plan">Схема на хотела</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Rooms" asp-action="IndexReservation">Резервирай</a>
+                            </li>
+                        }
+                        
+
+                        @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown admin-dropdown">
+                                <a class="nav-link dropdown-toggle admin-link"
+                                   href="#"
+                                   id="adminDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Админ панел
+                                </a>
+
+                                <ul class="dropdown-menu admin-menu" aria-labelledby="adminDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Rooms" asp-action="Index">Стаи</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="RoomTypes" asp-action="Index">Видове сати</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Reservations" asp-action="Index">Резервации</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                        <li class ="nav-item">
+                            <a style="color:white">|</a>
+                        </li>
+                    </ul>
+                        
+                        
+
+                        <partial name="_LoginPartial" />
+
+                       @*  <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Влизане</a>
+                        </li> *@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @* <main class="page-content">
+        @RenderBody()
+    </main> *@
+    <main class="page-content @(ViewContext.RouteData.Values["action"]?.ToString() == "Index"
+              && ViewContext.RouteData.Values["controller"]?.ToString() == "Home"
+              ? "home-page" : "inner-page")">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
