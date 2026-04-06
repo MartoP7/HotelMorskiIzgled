@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Схема на хотела";
+}
+
+<section class="floor-plan-page">
+    <div class="container">
+        <div class="section-heading">
+            <h1>Схема на хотела</h1>
+            <p>Изберете етаж, за да видите разпределението.</p>
+        </div>
+
+        <div class="floor-layout">
+            <aside class="floor-sidebar">
+                <h4>Етажи:</h4>
+                <button class="floor-btn active" data-floor="floorP">Партер</button>
+                <button class="floor-btn" data-floor="floor1">Етаж 1</button>
+                <button class="floor-btn" data-floor="floor2">Етаж 2</button>
+                <button class="floor-btn" data-floor="floor3">Етаж 3</button>
+                <button class="floor-btn" data-floor="floor4">Етаж 4</button>
+                <button class="floor-btn" data-floor="floor5">Етаж 5</button>
+                <button class="floor-btn" data-floor="floor6">Етаж 6</button>
+            </aside>
+
+            <div class="floor-display">
+                <div class="floor-panel active" id="floorP">
+                    <h2>Партер</h2>
+                    <img src="~/images/floors/floorP.png" alt="Схема на партер" class="floor-image" />
+                </div>
+                <div class="floor-panel" id="floor1">
+                    <h2>Етаж 1</h2>
+                    <img src="~/images/floors/floor1.png" alt="Схема на етаж 1" class="floor-image" />
+                </div>
+
+                <div class="floor-panel" id="floor2">
+                    <h2>Етаж 2</h2>
+                    <img src="~/images/floors/floor2.png" alt="Схема на етаж 2" class="floor-image" />
+                </div>
+
+                <div class="floor-panel" id="floor3">
+                    <h2>Етаж 3</h2>
+                    <img src="~/images/floors/floor3.png" alt="Схема на етаж 3" class="floor-image" />
+                </div>
+
+                <div class="floor-panel" id="floor4">
+                    <h2>Етаж 4</h2>
+                    <img src="~/images/floors/floor4.png" alt="Схема на етаж 4" class="floor-image" />
+                </div>
+
+                <div class="floor-panel" id="floor5">
+                    <h2>Етаж 5</h2>
+                    <img src="~/images/floors/floor5.png" alt="Схема на етаж 5" class="floor-image" />
+                </div>
+
+                <div class="floor-panel" id="floor6">
+                    <h2>Етаж 6</h2>
+                    <img src="~/images/floors/floor6.png" alt="Схема на етаж 6" class="floor-image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <!-- Контакти -->
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <!-- Социални -->
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <!-- Навигация -->
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
+
+
+@section Scripts {
+    <script>
+        const floorButtons = document.querySelectorAll('.floor-btn');
+        const floorPanels = document.querySelectorAll('.floor-panel');
+
+        floorButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const floorId = this.getAttribute('data-floor');
+
+                floorButtons.forEach(btn => btn.classList.remove('active'));
+                floorPanels.forEach(panel => panel.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(floorId).classList.add('active');
+            });
+        });
+    </script>
+}

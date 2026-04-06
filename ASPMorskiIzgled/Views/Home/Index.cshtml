@@ -1,0 +1,176 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+
+
+@* NEW INDEX =========================================================================================== *@
+
+@{
+    ViewData["Title"] = "Начало";
+}
+
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+        <div class="welcome-card" id="about-hotel">
+            <div class="welcome-image">
+                <img src="~/images/hotel.jpg" alt="Хотел Морски Изглед" />
+            </div>
+
+            <div class="welcome-text">
+                @* <span class="welcome-badge">Добре дошли</span> *@
+                <h1>Хотел „Морски Изглед“</h1>
+                <p>
+                    Насладете се на спокойствие, уют и красива морска атмосфера.
+                    Хотелът предлага комфортни стаи, прекрасна локация до плажа
+                    и приятна обстановка за вашата почивка. Тук ще откриете идеалното
+                    място за отдих на първа линия, съчетаващо морски изглед, удобства
+                    и модерен комфорт.
+                </p>
+                <a href="#amenities" class="welcome-btn">Напред</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="amenities-section" id="amenities">
+    <div class="container">
+        <div class="section-heading">
+            <br>
+            <br>
+            <h2>Удобства</h2>
+            <p>Всичко необходимо за една приятна и спокойна почивка.</p>
+        </div>
+
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <img src="~/images/icons/beach.png" alt="Плаж" />
+                <span>Плаж</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/wifi.png" alt="Wi-Fi" />
+                <span>Wi-Fi</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/food.png" alt="Ресторант" />
+                <span>Ресторант</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/ac.png" alt="Климатик" />
+                <span>Климатик</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/tv.png" alt="Телевизор" />
+                <span>Телевизор</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/fridge.png" alt="Хладилник" />
+                <span>Хладилник</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/lift.png" alt="Асансьор" />
+                <span>Асансьор</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/guard.png" alt="Охрана" />
+                <span>Охрана</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/towels.png" alt="Спално бельо" />
+                <span>Спално бельо</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/store.png" alt="Магазин" />
+                <span>Магазин</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/airport.png" alt="Трансфер" />
+                <span>Трансфер</span>
+            </div>
+            <div class="amenity-item">
+                <img src="~/images/icons/stairs.png" alt="Достъп" />
+                <span>Достъп</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section" id="hotel-plan">
+    <div class="container map-container">
+        <div class="section-heading">
+            <h2>Местоположение</h2>
+            <p>Хотелът се намира на отлична локация в непосредствена близост до морето.</p>
+        </div>
+
+        <div class="map-card">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.147810677405!2d27.710000000000004!3d42.659999999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a69f0000000001%3A0x1111111111111111!2sNessebar!5e0!3m2!1sbg!2sbg!4v1710000000000!5m2!1sbg!2sbg"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <p class="map-note">
+            Хотелът е близо до плажа и е разположен на първа линия.
+        </p>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <!-- Контакти -->
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <!-- Социални -->
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <!-- Навигация -->
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
