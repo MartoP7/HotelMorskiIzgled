@@ -11,7 +11,7 @@
         <div class="reservation-card">
 
             <section class="reservation-form-section">
-                <h1 class="reservation-title">Формата за резервация</h1>
+                <h1 class="reservation-title">Резервация</h1>
 
                 <form asp-action="IndexReservation" method="post" class="reservation-form">
                     <div class="reservation-form-grid">
@@ -98,6 +98,57 @@
         </div>
     </div>
 </div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <!-- Контакти -->
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <!-- Социални -->
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <!-- Навигация -->
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
 
 @section Scripts {
     @{

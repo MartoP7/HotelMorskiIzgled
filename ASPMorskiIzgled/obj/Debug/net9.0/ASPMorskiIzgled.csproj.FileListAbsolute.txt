@@ -3404,4 +3404,5 @@ C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0
 C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\ASPMorskiIzgled.genruntimeconfig.cache
 C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\ref\ASPMorskiIzgled.dll
 C:\Users\STEM-1-10\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\compressed\k1c46bxtz7-vadqz0wse2.gz
-C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\compressed\k1c46bxtz7-r5hsfq4j29.gz
+C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\ASPMorskiIzgled.sourcelink.json
+C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\obj\Debug\net9.0\compressed\k1c46bxtz7-crg3mtimr1.gz
