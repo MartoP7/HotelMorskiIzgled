@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "За нас";
+}
+
+<div class="about-page">
+
+    <div class="about-wrapper">
+
+        <h1 class="about-title">За нас</h1>
+
+        <!-- SECTION 1 -->
+
+        <div class="about-section">
+
+            <div class="about-card text-card">
+
+                <h2>Хотел Морски Изглед</h2>
+
+                <p>
+                    Хотел „Морски Изглед“ предлага уют,
+                    спокойствие и невероятна гледка към морето.
+                </p>
+
+                <p>
+                    Насладете се на модерни стаи,
+                    отлично обслужване и незабравима почивка.
+                </p>
+
+            </div>
+
+            <div class="about-card image-card">
+
+                <img src="~/images/about1.png" alt="Hotel">
+
+            </div>
+
+        </div>
+
+        <!-- SECTION 2 -->
+
+        <div class="about-section reverse">
+
+
+            <div class="about-card text-card">
+
+                <h2>Комфорт и стил</h2>
+
+                <p>
+                    Всяка стая е създадена с внимание към детайла,
+                    за да осигури максимален комфорт.
+                </p>
+
+                <p>
+                    Перфектното място за семейна почивка
+                    или романтичен уикенд.
+                </p>
+
+            </div>
+
+            <div class="about-card image-card">
+
+                <img src="~/images/about2.png" alt="Room">
+
+            </div>
+
+            
+
+        </div>
+
+        <!-- SECTION 3 -->
+
+        <div class="about-section reverse">
+
+
+            <div class="about-card image-card">
+
+                <img src="~/images/about3.png" alt="Room">
+
+            </div>
+
+            <div class="about-card text-card">
+
+                <h2>Комфорт и стил</h2>
+
+                <p>
+                    Всяка стая е създадена с внимание към детайла,
+                    за да осигури максимален комфорт.
+                </p>
+
+                <p>
+                    Перфектното място за семейна почивка
+                    или романтичен уикенд.
+                </p>
+
+            </div>
+
+            
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <!-- Контакти -->
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <!-- Социални -->
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <!-- Навигация -->
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>

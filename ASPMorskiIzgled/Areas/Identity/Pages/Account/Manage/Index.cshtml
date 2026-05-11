@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Профил";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="manage-section-header">
+    <h2>@ViewData["Title"]</h2>
+    <p>Променете информацията в своя акаунт.</p>
+</div>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="profile-card">
+    <form id="profile-form" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Username" class="form-control" placeholder="Потребителско име" disabled />
+            <label asp-for="Username" class="form-label"></label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Телефон" />
+            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">
+            Запази промените
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

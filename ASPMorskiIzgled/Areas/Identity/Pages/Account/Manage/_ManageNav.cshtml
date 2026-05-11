@@ -1,0 +1,42 @@
+﻿@inject SignInManager<Client> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<ul class="manage-nav-list">
+    <li>
+        <a class="manage-nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">
+            Профил
+        </a>
+    </li>
+    <li>
+        <a class="manage-nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">
+            Имейл
+        </a>
+    </li>
+    <li>
+        <a class="manage-nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">
+            Парола
+        </a>
+    </li>
+
+    @if (hasExternalLogins)
+    {
+        <li>
+            <a id="external-login" class="manage-nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">
+                Външни входове
+            </a>
+        </li>
+    }
+
+    <li>
+        <a class="manage-nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">
+            Двуфакторна защита
+        </a>
+    </li>
+    <li>
+        <a class="manage-nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
+            Лични данни
+        </a>
+    </li>
+</ul>

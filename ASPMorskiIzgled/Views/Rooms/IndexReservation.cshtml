@@ -1,0 +1,106 @@
+﻿@model ASPMorskiIzgled.Models.ViewModels.RoomSearchView
+
+@{
+    ViewData["Title"] = "Резервация";
+}
+
+<div class="reservation-page">
+    <div class="reservation-overlay"></div>
+
+    <div class="reservation-container">
+        <div class="reservation-card">
+
+            <section class="reservation-form-section">
+                <h1 class="reservation-title">Формата за резервация</h1>
+
+                <form asp-action="IndexReservation" method="post" class="reservation-form">
+                    <div class="reservation-form-grid">
+                        <div class="form-floating">
+                            <input asp-for="DateIn" class="form-control" type="date" />
+                            <label asp-for="DateIn"></label>
+                            <span asp-validation-for="DateIn" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating">
+                            <input asp-for="DateOut" class="form-control" type="date" />
+                            <label asp-for="DateOut"></label>
+                            <span asp-validation-for="DateOut" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating">
+                            <input asp-for="Adults" class="form-control" type="number" min="1" />
+                            <label asp-for="Adults"></label>
+                            <span asp-validation-for="Adults" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating">
+                            <input asp-for="Children" class="form-control" type="number" min="0" />
+                            <label asp-for="Children"></label>
+                            <span asp-validation-for="Children" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating reservation-babies-field">
+                            <input asp-for="Babies" class="form-control" type="number" min="0" />
+                            <label asp-for="Babies"></label>
+                            <span asp-validation-for="Babies" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="reservation-form-actions">
+                        <button type="submit" class="btn btn-primary reservation-search-btn">Търсене</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="reservation-rooms-section">
+                <div class="reservation-rooms-header">
+                    <h2>Налични стаи:</h2>
+                </div>
+
+                @if (Model.AvailableRooms != null && Model.AvailableRooms.Any())
+                {
+                    <div class="rooms-grid">
+                        @foreach (var room in Model.AvailableRooms)
+                        {
+                            <article class="room-reservation-card">
+                                <div class="room-reservation-image">
+                                    <img src="@room.Photo" alt="@room.Name" />
+                                </div>
+
+                                <div class="room-reservation-body">
+                                    <h3>@room.Name</h3>
+                                    <p>@room.Description</p>
+                                    <p><strong>Тип:</strong> @room.RoomTypes.Name</p>
+                                    <p><strong>Цена:</strong> @room.Price лв.</p>
+                                    <p><strong>Кошара:</strong> @(room.SleepingCot ? "Да" : "Не")</p>
+
+                                    <a asp-controller="Reservations"
+                                       asp-action="CreateReservation"
+                                       asp-route-roomId="@room.Id"
+                                       asp-route-dateIn="@Model.DateIn.ToString("yyyy-MM-dd")"
+                                       asp-route-dateOut="@Model.DateOut.ToString("yyyy-MM-dd")"
+                                       class="btn btn-primary w-100">
+                                        Резервирай
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                }
+                else if (Context.Request.Method == "POST")
+                {
+                    <div class="no-rooms-box">
+                        <p>Няма намерени свободни стаи по зададените критерии.</p>
+                    </div>
+                }
+            </section>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,37 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<div class="manage-page">
+    <div class="manage-overlay"></div>
+
+    <div class="manage-container">
+        <div class="manage-card">
+            <div class="manage-header">
+                <h1>Моят профил</h1>
+                <p>Управлявайте своя акаунт и настройките си.</p>
+            </div>
+
+            <div class="manage-layout">
+                <aside class="manage-sidebar">
+                    <partial name="_ManageNav" />
+                </aside>
+
+                <section class="manage-content">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
