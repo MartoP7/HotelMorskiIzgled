@@ -1086,6 +1086,36 @@ a {
     }
 }
 
+
+
+
+/* Auth side text card */
+
+.auth-info-card {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    height: 100%;
+}
+
+    /* Text */
+
+    .auth-info-card h1,
+    .auth-info-card h2,
+    .auth-info-card h3 {
+        color: #111;
+    }
+
+    .auth-info-card p,
+    .auth-info-card li,
+    .auth-info-card span {
+        color: #444;
+        line-height: 1.7;
+    }
+
+
+
 /* =========================
    MANAGE ACCOUNT
    ========================= */

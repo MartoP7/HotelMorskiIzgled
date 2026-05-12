@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="reservation-form-actions">
-                        <button type="submit" class="btn btn-primary reservation-search-btn">Търсене</button>
+                        <button type="submit" class="btn btn-primary reservation-search-btn">Търсене на стаи</button>
                     </div>
                 </form>
             </section>
@@ -70,8 +70,8 @@
                                 <div class="room-reservation-body">
                                     <h3>@room.Name</h3>
                                     <p>@room.Description</p>
+                                    <p><strong>Цена:</strong> @room.Price € нощувка</p>
                                     <p><strong>Тип:</strong> @room.RoomTypes.Name</p>
-                                    <p><strong>Цена:</strong> @room.Price лв.</p>
                                     <p><strong>Кошара:</strong> @(room.SleepingCot ? "Да" : "Не")</p>
 
                                     <a asp-controller="Reservations"
