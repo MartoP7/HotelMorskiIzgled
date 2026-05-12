@@ -564,7 +564,7 @@ a {
 /* FOOTER */
 .site-footer {
     position: relative;
-    background: url('/images/beach.jpg') center/cover no-repeat;
+    background: url('/images/beach.jpg') bottom -430px center/cover no-repeat;
     padding: 4rem 0 2rem;
     color: #fff;
     overflow: hidden;
@@ -787,6 +787,9 @@ a {
     min-height: 100vh;
     padding: 190px 0;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-attachment: fixed;
     overflow: hidden;
     margin-top: -150px;
@@ -948,11 +951,12 @@ a {
     position: relative;
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: -150px;
-    padding-top: 140px;
+    padding-top: 190px;
 }
 
 .auth-overlay {
@@ -1124,6 +1128,7 @@ a {
     position: relative;
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment:fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1308,11 +1313,11 @@ a {
     position: relative;
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     margin-top: -150px;
-   
     padding: 70px;
     padding-top: 190px;
     padding-bottom: 40px;
@@ -1672,11 +1677,13 @@ a {
         position: fixed;
         inset: 0;
         background: url('/images/beach.jpg') center/cover no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-size: cover;
         filter: blur(8px);
-        
         z-index: -2;
-       
     }
 
     /* Dark overlay */
@@ -1913,7 +1920,12 @@ a {
     position: relative;
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: -150px;
+    margin-bottom: 0px;
     padding: 190px 70px 60px;
 }
 
@@ -2040,7 +2052,12 @@ a {
     position: relative;
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: -150px;
+    margin-bottom: 0px;
     padding: 190px 70px 60px;
 }
 
@@ -2056,14 +2073,14 @@ a {
 .room-details-container {
     position: relative;
     z-index: 2;
-    max-width: 1500px;
-    margin: 0 auto;
+    max-width: 1600px;
+    margin: auto;
 }
 
 .room-details-card {
     background: white;
-    border-radius: 28px;
-    padding: 2.5rem;
+    border-radius: 30px;
+    padding: 4rem;
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 2.5rem;

@@ -69,6 +69,60 @@
     </div>
 </div>
 
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <!-- Контакти -->
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <!-- Социални -->
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <!-- Навигация -->
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a onclick="event.stopPropagation();"
+                   asp-controller="Reservations">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
+
+
 <script>
     function changeMainImage(clickedThumb) {
         const mainImage = document.getElementById("mainRoomImage");

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\rooms\\roomdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\rooms\\roomdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\rooms\\indexreservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\rooms\\indexreservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeToolTip": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAIEHAAAAAAAAAAAAAJ8HAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEYEAAAAAAAAAADwv2oEAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-05-11T09:17:30.564Z",
               "IsPinned": true,
@@ -64,26 +64,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RoomDetails.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\RoomDetails.cshtml",
               "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Rooms\\RoomDetails.cshtml",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\RoomDetails.cshtml",
               "RelativeToolTip": "ASPMorskiIzgled\\Views\\Rooms\\RoomDetails.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAADwv10AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-12T16:15:58.839Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "IndexReservation.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
               "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
               "RelativeToolTip": "ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAG4AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAJIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-11T21:30:32.286Z",
               "EditorCaption": ""
@@ -98,8 +98,7 @@
               "RelativeToolTip": "ASPMorskiIzgled\\Controllers\\RoomsController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwDAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-12T11:46:37.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-12T11:46:37.286Z"
             },
             {
               "$type": "Document",
@@ -135,8 +134,7 @@
               "RelativeToolTip": "ASPMorskiIzgled\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAEIAAAAAAAAAAAAAAFYAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-12T10:27:02.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-12T10:27:02.692Z"
             },
             {
               "$type": "Document",
