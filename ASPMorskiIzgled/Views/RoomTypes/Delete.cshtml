@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.RoomType
+﻿@* @model ASPMorskiIzgled.Models.RoomType
 
 @{
     ViewData["Title"] = "Delete";
@@ -30,4 +30,79 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
+</div>
+ *@
+
+
+
+
+
+@model ASPMorskiIzgled.Models.RoomType
+
+@{
+    ViewData["Title"] = "Изтриване на тип стая";
+}
+
+<div class="admin-page">
+    <div class="admin-overlay"></div>
+
+    <div class="admin-container">
+        <div class="admin-card admin-delete-card">
+
+            <div class="admin-delete-warning">
+                <div class="admin-delete-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+
+                <h1>Изтриване на тип стая</h1>
+                <p>
+                    Сигурни ли сте, че искате да изтриете този тип стая?
+                    Това действие не може да бъде отменено.
+                </p>
+            </div>
+
+            <div class="admin-details-content">
+
+                <div class="admin-detail-box">
+                    <div class="admin-detail-icon">
+                        <i class="bi bi-door-open"></i>
+                    </div>
+
+                    <div class="admin-detail-info">
+                        <span class="admin-detail-label">Име на тип стая</span>
+                        <h2>@Model.Name</h2>
+                    </div>
+                </div>
+
+                <div class="admin-detail-box">
+                    <div class="admin-detail-icon">
+                        <i class="bi bi-card-text"></i>
+                    </div>
+
+                    <div class="admin-detail-info">
+                        <span class="admin-detail-label">Описание</span>
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <form asp-action="Delete" class="admin-delete-form">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-danger admin-delete-btn">
+                        <i class="bi bi-trash-fill"></i>
+                        Изтрий окончателно
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary admin-cancel-btn">
+                        <i class="bi bi-arrow-left"></i>
+                        Отказ
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>

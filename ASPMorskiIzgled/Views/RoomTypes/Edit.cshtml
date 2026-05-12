@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.RoomType
+﻿@* @model ASPMorskiIzgled.Models.RoomType
 
 @{
     ViewData["Title"] = "Edit";
@@ -36,4 +36,83 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@
+
+
+
+
+
+
+
+@model ASPMorskiIzgled.Models.RoomType
+
+@{
+    ViewData["Title"] = "Редакция на тип стая";
+}
+
+<div class="admin-page">
+    <div class="admin-overlay"></div>
+
+    <div class="admin-container">
+        <div class="admin-card admin-form-card">
+
+            <div class="admin-header">
+                <div>
+                    <h1>Редактирай тип стая</h1>
+                    <p>Промени информацията за избрания тип стая.</p>
+                </div>
+
+                <a asp-action="Index" class="btn btn-outline-secondary admin-back-btn">
+                    <i class="bi bi-arrow-left"></i>
+                    Назад
+                </a>
+            </div>
+
+            <form asp-action="Edit" class="admin-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="admin-form-group">
+                    <label asp-for="Name" class="admin-label">Име на тип стая</label>
+                    <div class="admin-input-wrapper">
+                        <i class="bi bi-door-open"></i>
+                        <input asp-for="Name" class="form-control admin-input" placeholder="Например: Двойна стая" />
+                    </div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="admin-form-group">
+                    <label asp-for="Description" class="admin-label">Описание</label>
+                    <div class="admin-input-wrapper admin-textarea-wrapper">
+                        <i class="bi bi-card-text"></i>
+                        <textarea asp-for="Description"
+                                  class="form-control admin-input admin-textarea"
+                                  rows="5"
+                                  placeholder="Кратко описание на типа стая..."></textarea>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-primary admin-submit-btn">
+                        <i class="bi bi-pencil-square"></i>
+                        Запази промените
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary admin-cancel-btn">
+                        Отказ
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
