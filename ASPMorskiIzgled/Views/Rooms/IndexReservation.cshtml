@@ -15,35 +15,56 @@
 
                 <form asp-action="IndexReservation" method="post" class="reservation-form">
                     <div class="reservation-form-grid">
-                        <div class="form-floating">
-                            <input asp-for="DateIn" class="form-control" type="date" />
-                            <label asp-for="DateIn"></label>
-                            <span asp-validation-for="DateIn" class="text-danger"></span>
+                        <div class="reservation-input-icon-wrapper">
+                            <i class="bi bi-calendar-event"></i>
+                            <div class="form-floating">
+                                <input asp-for="DateIn" class="form-control" type="date" />
+                                <label asp-for="DateIn"></label>
+                                <span asp-validation-for="DateIn" class="text-danger"></span>
+                            </div>
                         </div>
 
-                        <div class="form-floating">
-                            <input asp-for="DateOut" class="form-control" type="date" />
-                            <label asp-for="DateOut"></label>
-                            <span asp-validation-for="DateOut" class="text-danger"></span>
+                        <div class="reservation-input-icon-wrapper">
+                            <i class="bi bi-calendar-check"></i>
+                            <div class="form-floating">
+                                <input asp-for="DateOut" class="form-control" type="date" />
+                                <label asp-for="DateOut"></label>
+                                <span asp-validation-for="DateOut" class="text-danger"></span>
+                            </div>
                         </div>
 
-                        <div class="form-floating">
-                            <input asp-for="Adults" class="form-control" type="number" min="1" />
-                            <label asp-for="Adults"></label>
-                            <span asp-validation-for="Adults" class="text-danger"></span>
+                        <div class="reservation-input-icon-wrapper">
+                            <i class="bi bi-person-fill"></i>
+                            <div class="form-floating">
+                                <input asp-for="Adults" class="form-control" type="number" min="1" />
+                                <label asp-for="Adults"></label>
+                                <span asp-validation-for="Adults" class="text-danger"></span>
+                            </div>
                         </div>
 
-                        <div class="form-floating">
-                            <input asp-for="Children" class="form-control" type="number" min="0" />
-                            <label asp-for="Children"></label>
-                            <span asp-validation-for="Children" class="text-danger"></span>
+                        <div class="reservation-input-icon-wrapper">
+                            <i class="bi bi-people-fill"></i>
+                            <div class="form-floating">
+                                <input asp-for="Children" class="form-control" type="number" min="0" />
+                                <label asp-for="Children"></label>
+                                <span asp-validation-for="Children" class="text-danger"></span>
+                            </div>
                         </div>
 
-                        <div class="form-floating reservation-babies-field">
-                            <input asp-for="Babies" class="form-control" type="number" min="0" />
-                            <label asp-for="Babies"></label>
-                            <span asp-validation-for="Babies" class="text-danger"></span>
+                        <div class="reservation-input-icon-wrapper">
+                            <i class="bi bi-emoji-smile"></i>
+                            <div class="form-floating reservation-babies-field">
+                                <input asp-for="Babies" class="form-control" type="number" min="0" />
+                                <label asp-for="Babies"></label>
+                                <span asp-validation-for="Babies" class="text-danger"></span>
+                            </div>
                         </div>
+
+                        <div class="reservation-checkbox-wrapper">
+                            <input asp-for="SofaBed" class="form-check-input" type="checkbox" />
+                            <label asp-for="SofaBed">Разтегателен диван</label>
+                        </div>
+
                     </div>
 
                     <div class="reservation-form-actions">
@@ -70,7 +91,7 @@
                                 <div class="room-reservation-body">
                                     <h3>@room.Name</h3>
                                     <p>@room.Description</p>
-                                    <p><strong>Цена:</strong> @room.Price € нощувка</p>
+                                    <p><strong>Цена:</strong> @room.Price€ нощувка</p>
                                     <p><strong>Тип:</strong> @room.RoomTypes.Name</p>
                                     <p><strong>Кошара:</strong> @(room.SleepingCot ? "Да" : "Не")</p>
 

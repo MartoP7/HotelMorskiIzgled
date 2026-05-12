@@ -1369,7 +1369,7 @@ a {
     max-width: 1020px;
     margin: 0 auto;
     background: #ffffff;
-    padding: 1.8rem;
+    padding: 2.4rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
@@ -1377,16 +1377,18 @@ a {
 /* GRID ЗА INPUTS */
 .reservation-form-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 1.4rem 1.6rem;
+    max-width: 980px;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 /* INPUTS */
 .reservation-form .form-control {
     border-radius: 14px;
     border: 1px solid #dcdcdc;
-    min-height: 58px;
+    min-height: 64px;
     background: #fff;
     color: #333;
 }
@@ -1533,6 +1535,59 @@ a {
         font-size: 1.8rem;
     }
 }
+
+
+
+
+
+.reservation-input-icon-wrapper {
+    position: relative;
+}
+
+    .reservation-input-icon-wrapper i {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        font-size: 1.2rem;
+        color: #666;
+        pointer-events: none;
+    }
+
+    .reservation-input-icon-wrapper .form-control {
+        padding-left: 48px;
+    }
+
+    .reservation-input-icon-wrapper .form-floating > label {
+        padding-left: 48px;
+    }
+
+
+.reservation-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 64px;
+    padding: 0 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 14px;
+    background: #fff;
+}
+
+    .reservation-checkbox-wrapper label {
+        margin: 0;
+        color: #333;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .reservation-checkbox-wrapper .form-check-input {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
 
 
 

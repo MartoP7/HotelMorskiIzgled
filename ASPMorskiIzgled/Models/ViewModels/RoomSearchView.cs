@@ -28,6 +28,8 @@ namespace ASPMorskiIzgled.Models.ViewModels
         [Display(Name = "Брой бебета")]
         public int Babies { get; set; }
 
+        public bool SofaBed { get; set; }
+
         public List<Room> AvailableRooms { get; set; } = new List<Room>();
     }
 }

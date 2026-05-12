@@ -40,15 +40,38 @@ namespace ASPMorskiIzgled.Controllers
                 DateOut = DateTime.Today.AddDays(1),
                 Adults = 1,
                 Children = 0,
-                Babies = 0
+                Babies = 0,
+                SofaBed = false
             };
 
-            model.AvailableRooms = _context.Rooms.Include(r => r.RoomTypes).ToList();
-            return View(model);
-            //var applicationDbContext = _context.Rooms.Include(r => r.RoomTypes);
-            //return View(await applicationDbContext.ToListAsync());
+            model.AvailableRooms = await _context.Rooms
+                .Include(r => r.RoomTypes)
+                .ToListAsync();
 
+            return View(model);
         }
+
+
+
+        //[HttpGet]
+        //public async Task<IActionResult> IndexReservation()
+        //{
+        //    var model = new RoomSearchView
+        //    {
+        //        DateIn = DateTime.Today,
+        //        DateOut = DateTime.Today.AddDays(1),
+        //        Adults = 1,
+        //        Children = 0,
+        //        Babies = 0
+        //    };
+
+        //    model.AvailableRooms = _context.Rooms.Include(r => r.RoomTypes).ToList();
+        //    return View(model);
+        //    //var applicationDbContext = _context.Rooms.Include(r => r.RoomTypes);
+        //    //return View(await applicationDbContext.ToListAsync());
+
+        //}
+
 
         [HttpPost]
         public async Task<IActionResult> IndexReservation(RoomSearchView model)
@@ -74,7 +97,6 @@ namespace ASPMorskiIzgled.Controllers
                 .Include(r => r.RoomTypes)
                 .AsQueryable();
 
-            // Филтър по тип стая според името на RoomType
             roomsQuery = roomsQuery.Where(r =>
                 (r.RoomTypes.Name == "Единична стая" && totalGuests <= 1) ||
                 (r.RoomTypes.Name == "Двойна стая" && totalGuests <= 2) ||
@@ -82,13 +104,16 @@ namespace ASPMorskiIzgled.Controllers
                 (r.RoomTypes.Name == "Апартамент" && totalGuests <= 4)
             );
 
-            // Ако има бебета -> стаята трябва да има кошара
             if (model.Babies > 0)
             {
                 roomsQuery = roomsQuery.Where(r => r.SleepingCot);
             }
 
-            // Свободни стаи за периода
+            if (model.SofaBed)
+            {
+                roomsQuery = roomsQuery.Where(r => r.SofaBed);
+            }
+
             roomsQuery = roomsQuery.Where(r => !_context.Reservations.Any(res =>
                 res.RoomId == r.Id &&
                 res.DateIn < model.DateOut &&
@@ -99,6 +124,59 @@ namespace ASPMorskiIzgled.Controllers
 
             return View(model);
         }
+
+
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> IndexReservation(RoomSearchView model)
+        //{
+        //    if (model.DateIn < DateTime.Today)
+        //    {
+        //        ModelState.AddModelError("DateIn", "Началната дата не може да е в миналото.");
+        //    }
+
+        //    if (model.DateOut <= model.DateIn)
+        //    {
+        //        ModelState.AddModelError("DateOut", "Крайната дата трябва да е след началната.");
+        //    }
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+
+        //    int totalGuests = model.Adults + model.Children;
+
+        //    var roomsQuery = _context.Rooms
+        //        .Include(r => r.RoomTypes)
+        //        .AsQueryable();
+
+        //    // Филтър по тип стая според името на RoomType
+        //    roomsQuery = roomsQuery.Where(r =>
+        //        (r.RoomTypes.Name == "Единична стая" && totalGuests <= 1) ||
+        //        (r.RoomTypes.Name == "Двойна стая" && totalGuests <= 2) ||
+        //        (r.RoomTypes.Name == "Студио" && totalGuests <= 3) ||
+        //        (r.RoomTypes.Name == "Апартамент" && totalGuests <= 4)
+        //    );
+
+        //    // Ако има бебета -> стаята трябва да има кошара
+        //    if (model.Babies > 0)
+        //    {
+        //        roomsQuery = roomsQuery.Where(r => r.SleepingCot);
+        //    }
+
+        //    // Свободни стаи за периода
+        //    roomsQuery = roomsQuery.Where(r => !_context.Reservations.Any(res =>
+        //        res.RoomId == r.Id &&
+        //        res.DateIn < model.DateOut &&
+        //        res.DateOut > model.DateIn
+        //    ));
+
+        //    model.AvailableRooms = await roomsQuery.ToListAsync();
+
+        //    return View(model);
+        //}
 
 
 
