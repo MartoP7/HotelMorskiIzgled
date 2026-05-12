@@ -61,11 +61,13 @@
                         </div>
 
                         <div class="reservation-checkbox-wrapper sofa">
+                            <i class="fa-solid fa-couch"></i>
                             <input asp-for="SofaBed" class="form-check-input" type="checkbox" />
                             <label asp-for="SofaBed">Разтегателен диван</label>
                         </div>
 
                         <div class="reservation-checkbox-wrapper cot">
+                            <i class="fa-solid fa-baby-carriage"></i>
                             <input asp-for="SleepingCot" class="form-check-input" type="checkbox" />
                             <label asp-for="SleepingCot">Кошара</label>
                         </div>
@@ -89,9 +91,24 @@
                     <div class="rooms-grid">
                         @foreach (var room in Model.AvailableRooms)
                         {
-                            <article class="room-reservation-card">
+                            <article class="room-reservation-card room-clickable"
+         onclick="window.location.href='@Url.Action("RoomDetails", "Rooms", new {
+             id = room.Id,
+             dateIn = Model.DateIn.ToString("yyyy-MM-dd"),
+             dateOut = Model.DateOut.ToString("yyyy-MM-dd")
+         })'">
+
                                 <div class="room-reservation-image">
-                                    <img src="@room.Photo" alt="@room.Name" />
+                                    @{
+    var roomPhotos = room.Photo?
+        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToList() ?? new List<string>();
+
+    var roomMainPhoto = roomPhotos.FirstOrDefault() ?? "/images/no-image.jpg";
+}
+
+<img src="@roomMainPhoto" alt="@room.Name" />
                                 </div>
 
                                 <div class="room-reservation-body">
@@ -110,6 +127,7 @@
                                         Резервирай
                                     </a>
                                 </div>
+
                             </article>
                         }
                     </div>
@@ -166,7 +184,8 @@
                 <a asp-controller="Home" asp-action="Index">Начало</a>
                 <a href="#hotel-plan">Схема</a>
                 <a href="#about-hotel">За нас</a>
-                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
+                <a onclick="event.stopPropagation();"
+   asp-controller="Reservations">Резервация</a>
             </div>
 
         </div>

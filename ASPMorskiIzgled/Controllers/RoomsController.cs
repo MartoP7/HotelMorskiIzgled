@@ -28,6 +28,29 @@ namespace ASPMorskiIzgled.Controllers
         }
 
 
+        // ROOM DETAILS
+
+        [HttpGet]
+        public async Task<IActionResult> RoomDetails(int id, DateTime dateIn, DateTime dateOut)
+        {
+            var room = await _context.Rooms
+                .Include(r => r.RoomTypes)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.DateIn = dateIn.ToString("yyyy-MM-dd");
+            ViewBag.DateOut = dateOut.ToString("yyyy-MM-dd");
+
+            return View(room);
+        }
+
+
+
+
         // INDEX RESERVATION
 
 

@@ -1469,6 +1469,16 @@ a {
         color: black;
     }
 
+.room-clickable {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .room-clickable:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    }
+
 /* GRID НА СТАИТЕ */
 .rooms-grid {
     display: grid;
@@ -1634,7 +1644,11 @@ a {
         height: 20px;
         cursor: pointer;
     }
-
+    .reservation-checkbox-wrapper i {
+        font-size: 1.2rem;
+        color: #666;
+        margin-right: 8px;
+    }
 
 
 
@@ -1886,4 +1900,266 @@ a {
 .register-container a,
 .auth-container a {
     color: #0d6efd;
+}
+
+
+
+/*
+\
+\ ROOM DETAILS
+\*/
+
+.room-details-page {
+    position: relative;
+    min-height: 100vh;
+    background: url('/images/beach.jpg') center/cover no-repeat;
+    margin-top: -150px;
+    padding: 190px 70px 60px;
+}
+
+.room-details-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20, 30, 40, 0.28);
+    z-index: 1;
+}
+
+.room-details-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.room-details-card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.room-main-image {
+    width: 100%;
+    height: 560px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fff;
+}
+
+    .room-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        image-rendering: auto;
+    }
+
+.room-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+    .room-thumbnails img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 14px;
+        cursor: pointer;
+    }
+
+.room-details-right h1 {
+    font-size: 3rem;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.room-description {
+    border: 2px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 1.2rem;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.room-price-box {
+    display: inline-flex;
+    flex-direction: column;
+    border: 2px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 1rem 2rem;
+    color: #111;
+    margin-bottom: 2rem;
+}
+
+    .room-price-box span {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .room-price-box strong {
+        font-size: 1.6rem;
+    }
+
+.room-info-list {
+    color: #333;
+    font-size: 1.05rem;
+    margin-bottom: 4rem;
+}
+
+.room-details-reserve-btn {
+    min-width: 260px;
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 991.98px) {
+    .room-details-card {
+        grid-template-columns: 1fr;
+    }
+
+    .room-main-image img {
+        height: 360px;
+    }
+
+    .room-details-right h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.room-details-page {
+    position: relative;
+    min-height: 100vh;
+    background: url('/images/beach.jpg') center/cover no-repeat;
+    margin-top: -150px;
+    padding: 190px 70px 60px;
+}
+
+.room-details-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20, 30, 40, 0.28);
+    z-index: 1;
+}
+
+.room-details-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.room-details-card {
+    background: white;
+    border-radius: 28px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.room-main-image img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.25s ease;
+}
+
+.room-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 14px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: 0.2s ease;
+}
+
+    .thumbnail-image:hover {
+        transform: scale(1.04);
+    }
+
+.active-thumb {
+    border-color: #0d6efd;
+}
+
+.room-details-right h1 {
+    font-size: 3rem;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.room-description {
+    border: 2px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 1.2rem;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.room-price-box {
+    display: inline-flex;
+    flex-direction: column;
+    border: 2px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 1rem 2rem;
+    color: #111;
+    margin-bottom: 2rem;
+}
+
+    .room-price-box span {
+        color: #666;
+    }
+
+    .room-price-box strong {
+        font-size: 1.6rem;
+    }
+
+.room-info-list {
+    color: #333;
+    font-size: 1.05rem;
+    margin-bottom: 4rem;
+}
+
+.room-details-reserve-btn {
+    min-width: 260px;
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 991px) {
+    .room-details-card {
+        grid-template-columns: 1fr;
+    }
+
+    .room-main-image img {
+        height: 360px;
+    }
+
+    .room-thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

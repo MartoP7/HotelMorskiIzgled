@@ -1,0 +1,97 @@
+﻿@model ASPMorskiIzgled.Models.Room
+
+@{
+    ViewData["Title"] = "Детайли за стая";
+
+    var photos = Model.Photo?
+        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToList() ?? new List<string>();
+
+    var mainPhoto = photos.FirstOrDefault() ?? "/images/no-image.jpg";
+}
+
+<div class="room-details-page">
+    <div class="room-details-overlay"></div>
+
+    <div class="room-details-container">
+        <div class="room-details-card">
+
+            <div class="room-details-left">
+                <div class="room-main-image">
+                    <img id="mainRoomImage" src="@mainPhoto" alt="@Model.Name" />
+                </div>
+
+                @if (photos.Any())
+                {
+                    <div class="room-thumbnails">
+                        @foreach (var photo in photos)
+                        {
+                            <img src="@photo"
+                                 data-full="@photo"
+                                 alt="@Model.Name"
+                                 onclick="changeMainImage(this)"
+                                 class="thumbnail-image @(photo == mainPhoto ? "active-thumb" : "")" />
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="room-details-right">
+                <h1>@Model.Name</h1>
+
+                <div class="room-description">
+                    <p>@Model.Description</p>
+                </div>
+
+                <div class="room-price-box">
+                    <span>Цена</span>
+                    <strong>@Model.Price€ / нощувка</strong>
+                </div>
+
+                <div class="room-info-list">
+                    <p><strong>Тип:</strong> @Model.RoomTypes.Name</p>
+                    <p><strong>Кошара:</strong> @(Model.SleepingCot ? "Да" : "Не")</p>
+                    <p><strong>Разтегателен диван:</strong> @(Model.SofaBed ? "Да" : "Не")</p>
+                </div>
+
+                <a asp-controller="Reservations"
+                   asp-action="CreateReservation"
+                   asp-route-roomId="@Model.Id"
+                   asp-route-dateIn="@ViewBag.DateIn"
+                   asp-route-dateOut="@ViewBag.DateOut"
+                   class="btn btn-primary room-details-reserve-btn">
+                    Резервирай
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeMainImage(clickedThumb) {
+        const mainImage = document.getElementById("mainRoomImage");
+        const fullImage = clickedThumb.getAttribute("data-full");
+
+        const preload = new Image();
+
+        preload.onload = function () {
+            mainImage.src = fullImage;
+        };
+
+        preload.src = fullImage;
+
+        document.querySelectorAll(".thumbnail-image").forEach(img => {
+            img.classList.remove("active-thumb");
+        });
+
+        clickedThumb.classList.add("active-thumb");
+    }
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
