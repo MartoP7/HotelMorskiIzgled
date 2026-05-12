@@ -127,6 +127,24 @@
 
                         @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
                         {
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Начало</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Home"
+                                   asp-action="About">
+                                    За нас
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Plan">Схема на хотела</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Rooms" asp-action="IndexReservation">Резервирай</a>
+                            </li>
+
                             <li class="nav-item dropdown admin-dropdown">
                                 <a class="nav-link dropdown-toggle admin-link"
                                    href="#"
