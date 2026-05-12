@@ -41,7 +41,8 @@ namespace ASPMorskiIzgled.Controllers
                 Adults = 1,
                 Children = 0,
                 Babies = 0,
-                SofaBed = false
+                SofaBed = false,
+                SleepingCot = false
             };
 
             model.AvailableRooms = await _context.Rooms
@@ -104,14 +105,14 @@ namespace ASPMorskiIzgled.Controllers
                 (r.RoomTypes.Name == "Апартамент" && totalGuests <= 4)
             );
 
-            if (model.Babies > 0)
-            {
-                roomsQuery = roomsQuery.Where(r => r.SleepingCot);
-            }
-
             if (model.SofaBed)
             {
                 roomsQuery = roomsQuery.Where(r => r.SofaBed);
+            }
+
+            if (model.SleepingCot)
+            {
+                roomsQuery = roomsQuery.Where(r => r.SleepingCot);
             }
 
             roomsQuery = roomsQuery.Where(r => !_context.Reservations.Any(res =>

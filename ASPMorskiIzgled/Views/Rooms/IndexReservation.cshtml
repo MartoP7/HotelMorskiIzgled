@@ -15,7 +15,7 @@
 
                 <form asp-action="IndexReservation" method="post" class="reservation-form">
                     <div class="reservation-form-grid">
-                        <div class="reservation-input-icon-wrapper">
+                        <div class="reservation-input-icon-wrapper date-in">
                             <i class="bi bi-calendar-event"></i>
                             <div class="form-floating">
                                 <input asp-for="DateIn" class="form-control" type="date" />
@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <div class="reservation-input-icon-wrapper">
+                        <div class="reservation-input-icon-wrapper date-out">
                             <i class="bi bi-calendar-check"></i>
                             <div class="form-floating">
                                 <input asp-for="DateOut" class="form-control" type="date" />
@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        <div class="reservation-input-icon-wrapper">
+                        <div class="reservation-input-icon-wrapper adults">
                             <i class="bi bi-person-fill"></i>
                             <div class="form-floating">
                                 <input asp-for="Adults" class="form-control" type="number" min="1" />
@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                        <div class="reservation-input-icon-wrapper">
+                        <div class="reservation-input-icon-wrapper children">
                             <i class="bi bi-people-fill"></i>
                             <div class="form-floating">
                                 <input asp-for="Children" class="form-control" type="number" min="0" />
@@ -51,7 +51,7 @@
                             </div>
                         </div>
 
-                        <div class="reservation-input-icon-wrapper">
+                        <div class="reservation-input-icon-wrapper babies">
                             <i class="bi bi-emoji-smile"></i>
                             <div class="form-floating reservation-babies-field">
                                 <input asp-for="Babies" class="form-control" type="number" min="0" />
@@ -60,16 +60,22 @@
                             </div>
                         </div>
 
-                        <div class="reservation-checkbox-wrapper">
+                        <div class="reservation-checkbox-wrapper sofa">
                             <input asp-for="SofaBed" class="form-check-input" type="checkbox" />
                             <label asp-for="SofaBed">Разтегателен диван</label>
                         </div>
 
+                        <div class="reservation-checkbox-wrapper cot">
+                            <input asp-for="SleepingCot" class="form-check-input" type="checkbox" />
+                            <label asp-for="SleepingCot">Кошара</label>
+                        </div>
+
                     </div>
 
-                    <div class="reservation-form-actions">
-                        <button type="submit" class="btn btn-primary reservation-search-btn">Търсене на стаи</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary reservation-search-btn">
+                        <i class="bi bi-search"></i>
+                        Търсене на стаи
+                    </button>
                 </form>
             </section>
 

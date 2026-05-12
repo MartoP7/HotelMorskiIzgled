@@ -1377,12 +1377,47 @@ a {
 /* GRID ЗА INPUTS */
 .reservation-form-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(260px, 1fr));
-    gap: 1.4rem 1.6rem;
-    max-width: 980px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "datein adults sofa"
+        "dateout children cot"
+        ". babies .";
+    gap: 1.4rem 1.8rem;
+    max-width: 1100px;
     margin: 0 auto;
-    justify-content: center;
+    align-items: center;
 }
+
+
+.date-in {
+    grid-area: datein;
+}
+
+.date-out {
+    grid-area: dateout;
+}
+
+.adults {
+    grid-area: adults;
+}
+
+.children {
+    grid-area: children;
+}
+
+.babies {
+    grid-area: babies;
+}
+
+.sofa {
+    grid-area: sofa;
+}
+
+.cot {
+    grid-area: cot;
+}
+
+
 
 /* INPUTS */
 .reservation-form .form-control {
@@ -1406,13 +1441,13 @@ a {
 .reservation-form-actions {
     display: flex;
     justify-content: center;
-    margin-top: 1.2rem;
+    margin-top: 3rem;
 }
 
 .reservation-search-btn {
     min-width: 220px;
     border-radius: 14px;
-    padding: 0.85rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     font-weight: 600;
 }
 
@@ -1489,6 +1524,18 @@ a {
         margin-top: auto;
         border-radius: 12px;
     }
+.reservation-search-btn {
+    min-width: 220px;
+    border-radius: 14px;
+    padding: 0.85rem 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: auto;
+    margin-top:2.5rem;
+}
 
 /* EMPTY */
 .no-rooms-box {
