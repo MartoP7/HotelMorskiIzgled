@@ -65,6 +65,14 @@
 
 @{
     ViewData["Title"] = "Резервации";
+
+    var totalReservations = Model?.Count() ?? 0;
+
+    var totalNights = Model?
+        .Sum(r => (r.DateOut - r.DateIn).Days) ?? 0;
+
+    var totalIncome = Model?
+        .Sum(r => ((r.DateOut - r.DateIn).Days) * r.Rooms.Price) ?? 0;
 }
 
 <div class="admin-page">
@@ -79,12 +87,47 @@
                     <p>Преглед и управление на всички направени резервации от потребителите.</p>
                 </div>
 
-                <a asp-controller="Rooms"
-                   asp-action="IndexReservation"
-                   class="btn btn-primary admin-create-btn">
-                    <i class="bi bi-search"></i>
-                    Нова резервация
-                </a>
+                <div class="admin-header-actions">
+                    <button type="button"
+                            class="btn btn-success admin-report-btn"
+                            onclick="toggleReservationReport()">
+                        <i class="bi bi-bar-chart-line"></i>
+                        Отчет
+                    </button>
+
+                    <a asp-controller="Rooms"
+                       asp-action="IndexReservation"
+                       class="btn btn-primary admin-create-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        Нова резервация
+                    </a>
+                </div>
+            </div>
+
+            <div id="reservationReportBox" class="reservation-report-box">
+                <div class="reservation-report-item">
+                    <i class="bi bi-calendar-check"></i>
+                    <div>
+                        <span>Общо резервации</span>
+                        <strong>@totalReservations</strong>
+                    </div>
+                </div>
+
+                <div class="reservation-report-item">
+                    <i class="bi bi-moon-stars"></i>
+                    <div>
+                        <span>Общо нощувки</span>
+                        <strong>@totalNights</strong>
+                    </div>
+                </div>
+
+                <div class="reservation-report-item income">
+                    <i class="bi bi-currency-euro"></i>
+                    <div>
+                        <span>Общ доход</span>
+                        <strong>@totalIncome€</strong>
+                    </div>
+                </div>
             </div>
 
             <div class="admin-table-wrapper">
@@ -185,3 +228,12 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+    function toggleReservationReport() {
+        const reportBox = document.getElementById("reservationReportBox");
+        reportBox.classList.toggle("show");
+    }
+</script>

@@ -1314,13 +1314,8 @@ a {
     min-height: 100vh;
     background: url('/images/beach.jpg') center/cover no-repeat;
     background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: -150px;
-    padding: 70px;
-    padding-top: 190px;
-    padding-bottom: 40px;
+    padding: 190px 70px 60px;
 }
 
 .reservation-overlay {
@@ -1328,7 +1323,7 @@ a {
     inset: 0;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: rgba(20, 30, 40, 0.28);
+    background: rgba(20, 30, 40, 0.30);
     z-index: 1;
 }
 
@@ -1337,19 +1332,14 @@ a {
     z-index: 2;
     width: 100%;
     max-width: 1600px;
-    /*padding: 1rem;*/
+    margin: 0 auto;
 }
 
-/* ВЪНШНА GLASS КАРТА */
 .reservation-card {
     width: 100%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #ffffff;
     border-radius: 30px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    color: #fff;
     overflow: hidden;
 }
 
@@ -1358,28 +1348,37 @@ a {
    ========================= */
 
 .reservation-form-section {
-    padding: 2.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2.4rem;
     background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.reservation-form-header {
+    text-align: center;
+    margin-bottom: 1.8rem;
 }
 
 .reservation-title {
-    text-align: center;
-    color: black;
-    margin: 0 0 1.5rem;
+    color: #111;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
-/* БЯЛА ФОРМА */
+.reservation-form-header p {
+    color: #666;
+    margin: 0.5rem 0 0;
+}
+
 .reservation-form {
-    max-width: 1020px;
+    max-width: 1120px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 2.4rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    padding: 2rem;
+    border-radius: 22px;
 }
 
-/* GRID ЗА INPUTS */
 .reservation-form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1387,12 +1386,9 @@ a {
         "datein adults sofa"
         "dateout children cot"
         ". babies .";
-    gap: 1.4rem 1.8rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    gap: 1.3rem 1.6rem;
     align-items: center;
 }
-
 
 .date-in {
     grid-area: datein;
@@ -1422,38 +1418,98 @@ a {
     grid-area: cot;
 }
 
-
-
 /* INPUTS */
-.reservation-form .form-control {
-    border-radius: 14px;
-    border: 1px solid #dcdcdc;
-    min-height: 64px;
-    background: #fff;
-    color: #333;
+
+.reservation-input-icon-wrapper {
+    position: relative;
 }
 
-    .reservation-form .form-control:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.08);
-        border-color: #999;
+    .reservation-input-icon-wrapper i {
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        font-size: 1.15rem;
+        color: #0d6efd;
+        pointer-events: none;
     }
 
-.reservation-form .form-floating > label {
-    color: #666;
+    .reservation-input-icon-wrapper .form-control {
+        min-height: 64px;
+        border-radius: 15px;
+        border: 1px solid #dcdcdc;
+        background: #ffffff;
+        color: #333;
+        padding-left: 50px;
+    }
+
+    .reservation-input-icon-wrapper .form-floating > label {
+        color: #666;
+        padding-left: 50px;
+    }
+
+    .reservation-input-icon-wrapper .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+        border-color: #0d6efd;
+    }
+
+/* CHECKBOXES */
+
+.reservation-checkbox-wrapper {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 15px;
+    background: #ffffff;
+    transition: 0.2s ease;
 }
 
-/* BUTTON */
+    .reservation-checkbox-wrapper:hover {
+        border-color: #0d6efd;
+        box-shadow: 0 6px 18px rgba(13, 110, 253, 0.08);
+    }
+
+    .reservation-checkbox-wrapper i {
+        font-size: 1.15rem;
+        color: #0d6efd;
+    }
+
+    .reservation-checkbox-wrapper label {
+        margin: 0;
+        color: #333;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .reservation-checkbox-wrapper .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        cursor: pointer;
+    }
+
+/* SEARCH BUTTON */
+
 .reservation-form-actions {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 2.4rem;
 }
 
 .reservation-search-btn {
-    min-width: 220px;
-    border-radius: 14px;
-    padding: 0.8rem 1.2rem;
-    font-weight: 600;
+    min-width: 240px;
+    border-radius: 15px;
+    padding: 0.9rem 1.4rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.25);
 }
 
 /* =========================
@@ -1461,105 +1517,141 @@ a {
    ========================= */
 
 .reservation-rooms-section {
-    padding: 1.8rem 2.2rem 2.2rem;
+    padding: 2.2rem 2.4rem 2.6rem;
     background: #ffffff;
 }
 
 .reservation-rooms-header {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.5rem;
 }
 
     .reservation-rooms-header h2 {
         margin: 0;
-        color: black;
+        color: #111;
+        font-size: 2rem;
+        font-weight: 700;
     }
 
-.room-clickable {
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-    .room-clickable:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    .reservation-rooms-header p {
+        margin: 0.35rem 0 0;
+        color: #666;
     }
 
-/* GRID НА СТАИТЕ */
 .rooms-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.4rem;
-    margin-top: 1rem;
 }
 
-/* БЯЛА КАРТА */
 .room-reservation-card {
     background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 18px;
+    border: 1px solid #e9edf2;
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    transition: 0.25s ease;
 }
 
-/* IMAGE */
+.room-clickable {
+    cursor: pointer;
+}
+
+    .room-clickable:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 35px rgba(0,0,0,0.16);
+    }
+
 .room-reservation-image {
     padding: 1rem 1rem 0;
 }
 
     .room-reservation-image img {
         width: 100%;
-        height: 180px;
-        border-radius: 14px;
+        height: 190px;
+        border-radius: 15px;
         object-fit: cover;
+        display: block;
     }
 
-/* BODY */
 .room-reservation-body {
-    padding: 1rem;
+    padding: 1.1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.9rem;
     flex: 1;
 }
 
     .room-reservation-body h3 {
-        color: #222;
-        margin: 0 0 0.4rem;
+        color: #111;
+        margin: 0 0 0.35rem;
+        font-size: 1.25rem;
+        font-weight: 700;
     }
 
-    .room-reservation-body p {
+.room-description {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ROOM INFO */
+
+.room-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+    .room-info-list p {
         margin: 0;
         color: #444;
+        font-size: 0.95rem;
     }
 
-    /* BUTTON */
-    .room-reservation-body .btn {
-        margin-top: auto;
-        border-radius: 12px;
+    .room-info-list i {
+        color: #0d6efd;
+        width: 18px;
+        margin-right: 5px;
     }
-.reservation-search-btn {
-    min-width: 220px;
-    border-radius: 14px;
-    padding: 0.85rem 1.2rem;
-    font-weight: 600;
-    display: flex;
+
+.room-reserve-btn {
+    margin-top: auto;
+    border-radius: 13px;
+    padding: 0.8rem 1rem;
+    font-weight: 700;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin: auto;
-    margin-top:2.5rem;
 }
 
 /* EMPTY */
+
 .no-rooms-box {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 1.2rem;
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 20px;
+    padding: 2.2rem 1.2rem;
     text-align: center;
     color: #333;
 }
+
+    .no-rooms-box i {
+        color: #0d6efd;
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .no-rooms-box h3 {
+        color: #111;
+        margin-bottom: 0.4rem;
+    }
 
 /* =========================
    RESPONSIVE
@@ -1571,22 +1663,50 @@ a {
     }
 
     .reservation-form-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "datein dateout"
+            "adults children"
+            "babies sofa"
+            "cot cot";
+    }
+}
+
+@media (max-width: 991.98px) {
+    .rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reservation-page {
+        padding: 160px 28px 50px;
     }
 }
 
 @media (max-width: 767.98px) {
     .reservation-page {
-        padding-top: 120px;
+        padding: 130px 18px 40px;
+        background-attachment: scroll;
     }
 
     .reservation-form-section,
     .reservation-rooms-section {
+        padding: 1.3rem;
+    }
+
+    .reservation-form {
         padding: 1.2rem;
     }
 
     .reservation-form-grid {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "datein"
+            "dateout"
+            "adults"
+            "children"
+            "babies"
+            "sofa"
+            "cot";
     }
 
     .rooms-grid {
@@ -1594,66 +1714,13 @@ a {
     }
 
     .reservation-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .reservation-search-btn {
+        width: 100%;
     }
 }
-
-
-
-
-
-.reservation-input-icon-wrapper {
-    position: relative;
-}
-
-    .reservation-input-icon-wrapper i {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 5;
-        font-size: 1.2rem;
-        color: #666;
-        pointer-events: none;
-    }
-
-    .reservation-input-icon-wrapper .form-control {
-        padding-left: 48px;
-    }
-
-    .reservation-input-icon-wrapper .form-floating > label {
-        padding-left: 48px;
-    }
-
-
-.reservation-checkbox-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 64px;
-    padding: 0 18px;
-    border: 1px solid #dcdcdc;
-    border-radius: 14px;
-    background: #fff;
-}
-
-    .reservation-checkbox-wrapper label {
-        margin: 0;
-        color: #333;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .reservation-checkbox-wrapper .form-check-input {
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
-    .reservation-checkbox-wrapper i {
-        font-size: 1.2rem;
-        color: #666;
-        margin-right: 8px;
-    }
 
 
 
@@ -2187,10 +2254,6 @@ a {
 
 
 
-
-/* =========================
-   MY RESERVATIONS PAGE
-   ========================= */
 
 /* =========================
    MY RESERVATIONS PAGE
@@ -3219,6 +3282,73 @@ a {
     font-weight: 600;
     white-space: nowrap;
 }
+
+
+.admin-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.admin-report-btn {
+    border-radius: 14px;
+    padding: 0.85rem 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.reservation-report-box {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+    .reservation-report-box.show {
+        display: grid;
+    }
+
+.reservation-report-item {
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 18px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+    .reservation-report-item i {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: #0d6efd;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+    }
+
+    .reservation-report-item span {
+        display: block;
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .reservation-report-item strong {
+        color: #111;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .reservation-report-item.income i {
+        background: #198754;
+    }
+
 
 
 /* =========================

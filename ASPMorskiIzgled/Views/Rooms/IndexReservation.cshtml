@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.ViewModels.RoomSearchView
+﻿@* @model ASPMorskiIzgled.Models.ViewModels.RoomSearchView
 
 @{
     ViewData["Title"] = "Резервация";
@@ -186,6 +186,244 @@
                 <a href="#about-hotel">За нас</a>
                 <a onclick="event.stopPropagation();"
    asp-controller="Reservations">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} *@
+
+
+
+
+
+
+
+
+                @model ASPMorskiIzgled.Models.ViewModels.RoomSearchView
+
+@{
+    ViewData["Title"] = "Резервация";
+}
+
+<div class="reservation-page">
+    <div class="reservation-overlay"></div>
+
+    <div class="reservation-container">
+        <div class="reservation-card">
+
+            <section class="reservation-form-section">
+                <div class="reservation-form-header">
+                    <h1 class="reservation-title">Резервация</h1>
+                    <p>Избери дати, гости и удобства, за да откриеш подходящата стая.</p>
+                </div>
+
+                <form asp-action="IndexReservation" method="post" class="reservation-form">
+                    <div class="reservation-form-grid">
+
+                        <div class="reservation-input-icon-wrapper date-in">
+                            <i class="bi bi-calendar-event"></i>
+                            <div class="form-floating">
+                                <input asp-for="DateIn" class="form-control" type="date" />
+                                <label asp-for="DateIn"></label>
+                                <span asp-validation-for="DateIn" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="reservation-input-icon-wrapper date-out">
+                            <i class="bi bi-calendar-check"></i>
+                            <div class="form-floating">
+                                <input asp-for="DateOut" class="form-control" type="date" />
+                                <label asp-for="DateOut"></label>
+                                <span asp-validation-for="DateOut" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="reservation-input-icon-wrapper adults">
+                            <i class="bi bi-person-fill"></i>
+                            <div class="form-floating">
+                                <input asp-for="Adults" class="form-control" type="number" min="1" />
+                                <label asp-for="Adults"></label>
+                                <span asp-validation-for="Adults" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="reservation-input-icon-wrapper children">
+                            <i class="bi bi-people-fill"></i>
+                            <div class="form-floating">
+                                <input asp-for="Children" class="form-control" type="number" min="0" />
+                                <label asp-for="Children"></label>
+                                <span asp-validation-for="Children" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="reservation-input-icon-wrapper babies">
+                            <i class="bi bi-emoji-smile"></i>
+                            <div class="form-floating">
+                                <input asp-for="Babies" class="form-control" type="number" min="0" />
+                                <label asp-for="Babies"></label>
+                                <span asp-validation-for="Babies" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="reservation-checkbox-wrapper sofa">
+                            <i class="fa-solid fa-couch"></i>
+                            <input asp-for="SofaBed" class="form-check-input" type="checkbox" />
+                            <label asp-for="SofaBed">Разтегателен диван</label>
+                        </div>
+
+                        <div class="reservation-checkbox-wrapper cot">
+                            <i class="fa-solid fa-baby-carriage"></i>
+                            <input asp-for="SleepingCot" class="form-check-input" type="checkbox" />
+                            <label asp-for="SleepingCot">Кошара</label>
+                        </div>
+
+                    </div>
+
+                    <div class="reservation-form-actions">
+                        <button type="submit" class="btn btn-primary reservation-search-btn">
+                            <i class="bi bi-search"></i>
+                            Търсене на стаи
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="reservation-rooms-section">
+                <div class="reservation-rooms-header">
+                    <div>
+                        <h2>Налични стаи</h2>
+                        <p>Избери стая, за да видиш повече детайли или да направиш резервация.</p>
+                    </div>
+                </div>
+
+                @if (Model.AvailableRooms != null && Model.AvailableRooms.Any())
+                {
+                    <div class="rooms-grid">
+                        @foreach (var room in Model.AvailableRooms)
+                        {
+                            var roomPhotos = room.Photo?
+                                .Split(';', StringSplitOptions.RemoveEmptyEntries)
+                                .Select(p => p.Trim())
+                                .ToList() ?? new List<string>();
+
+                            var roomMainPhoto = roomPhotos.FirstOrDefault() ?? "/images/no-image.jpg";
+
+                            <article class="room-reservation-card room-clickable"
+                                     onclick="window.location.href='@Url.Action("RoomDetails", "Rooms", new {
+                                         id = room.Id,
+                                         dateIn = Model.DateIn.ToString("yyyy-MM-dd"),
+                                         dateOut = Model.DateOut.ToString("yyyy-MM-dd")
+                                     })'">
+
+                                <div class="room-reservation-image">
+                                    <img src="@roomMainPhoto" alt="@room.Name" />
+                                </div>
+
+                                <div class="room-reservation-body">
+                                    <div>
+                                        <h3>@room.Name</h3>
+                                        @* <p class="room-description">@room.Description</p> *@
+                                    </div>
+
+                                    <div class="room-info-list">
+                                        <p>
+                                            <i class="bi bi-currency-euro"></i>
+                                            <strong>Цена:</strong> @room.Price€ / нощувка
+                                        </p>
+
+                                        <p>
+                                            <i class="bi bi-door-open"></i>
+                                            <strong>Тип:</strong> @room.RoomTypes.Name
+                                        </p>
+
+                                        <p>
+                                            <i class="fa-solid fa-baby-carriage"></i>
+                                            <strong>Кошара:</strong> @(room.SleepingCot ? "Да" : "Не")
+                                        </p>
+
+                                        <p>
+                                            <i class="fa-solid fa-couch"></i>
+                                            <strong>Диван:</strong> @(room.SofaBed ? "Да" : "Не")
+                                        </p>
+                                    </div>
+
+                                    <a onclick="event.stopPropagation();"
+                                       asp-controller="Reservations"
+                                       asp-action="CreateReservation"
+                                       asp-route-roomId="@room.Id"
+                                       asp-route-dateIn="@Model.DateIn.ToString("yyyy-MM-dd")"
+                                       asp-route-dateOut="@Model.DateOut.ToString("yyyy-MM-dd")"
+                                       class="btn btn-primary room-reserve-btn">
+                                        <i class="bi bi-check-circle"></i>
+                                        Резервирай
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                }
+                else if (Context.Request.Method == "POST")
+                {
+                    <div class="no-rooms-box">
+                        <i class="bi bi-info-circle"></i>
+                        <h3>Няма намерени свободни стаи</h3>
+                        <p>Промени датите или критериите и опитай отново.</p>
+                    </div>
+                }
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a href="#hotel-plan">Схема</a>
+                <a href="#about-hotel">За нас</a>
+                <a asp-controller="Reservations" asp-action="IndexReservation">Резервация</a>
             </div>
 
         </div>
