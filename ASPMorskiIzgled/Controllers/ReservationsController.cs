@@ -110,6 +110,23 @@ namespace ASPMorskiIzgled.Controllers
         }
 
         // GET: Reservations/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var reservation = await _context.Reservations.FindAsync(id);
+        //    if (reservation == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
+        //    ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "Description", reservation.RoomId);
+        //    return View(reservation);
+        //}
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,13 +134,23 @@ namespace ASPMorskiIzgled.Controllers
                 return NotFound();
             }
 
-            var reservation = await _context.Reservations.FindAsync(id);
+            var reservation = await _context.Reservations
+                .Include(r => r.Clients)
+                .Include(r => r.Rooms)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
             if (reservation == null)
             {
                 return NotFound();
             }
-            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "Description", reservation.RoomId);
+
+            ViewData["RoomId"] = new SelectList(
+                _context.Rooms,
+                "Id",
+                "Name",
+                reservation.RoomId
+            );
+
             return View(reservation);
         }
 

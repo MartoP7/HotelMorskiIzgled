@@ -2892,3 +2892,90 @@ a {
         height: 320px;
     }
 }
+
+
+
+
+
+
+/* =========================
+   RESERVATIONS ADMIN INDEX
+   ========================= */
+
+.reservations-admin-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.admin-reservation-room,
+.admin-reservation-client {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #111;
+    white-space: nowrap;
+}
+
+    .admin-reservation-room i,
+    .admin-reservation-client i {
+        color: #0d6efd;
+        font-size: 1.2rem;
+    }
+
+    .admin-reservation-client span {
+        max-width: 170px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.admin-date-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0.38rem 0.7rem;
+    border-radius: 999px;
+    background: #eef5ff;
+    color: #0d6efd;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.admin-reservation-created {
+    color: #444;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   RESERVATION DETAILS
+   ========================= */
+
+.admin-reservation-details-card {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+
+
+/* =========================
+   RESERVATION ADMIN DELETE
+   ========================= */
+
+.admin-reservation-delete-preview {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+@media (max-width: 991.98px) {
+    .admin-reservation-delete-preview {
+        grid-template-columns: 1fr;
+    }
+}

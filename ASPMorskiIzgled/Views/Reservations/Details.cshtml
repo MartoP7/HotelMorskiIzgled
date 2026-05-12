@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.Reservation
+﻿@* @model ASPMorskiIzgled.Models.Reservation
 
 @{
     ViewData["Title"] = "Details";
@@ -45,4 +45,143 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+ *@
+
+
+
+@model ASPMorskiIzgled.Models.Reservation
+
+@{
+    ViewData["Title"] = "Детайли за резервация";
+
+    var photos = Model.Rooms?.Photo?
+        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToList() ?? new List<string>();
+
+    var mainPhoto = photos.FirstOrDefault() ?? "/images/no-image.jpg";
+
+    var nights = (Model.DateOut - Model.DateIn).Days;
+    var totalPrice = nights * Model.Rooms.Price;
+}
+
+<div class="admin-page">
+    <div class="admin-overlay"></div>
+
+    <div class="admin-container">
+        <div class="admin-card admin-reservation-details-card">
+
+            <div class="admin-header">
+                <div>
+                    <h1>Детайли за резервация</h1>
+                    <p>Преглед на всички данни за избраната резервация.</p>
+                </div>
+
+                <a asp-action="Index" class="btn btn-outline-secondary admin-back-btn">
+                    <i class="bi bi-arrow-left"></i>
+                    Назад
+                </a>
+            </div>
+
+            <div class="admin-room-details-layout">
+
+                <div class="admin-room-details-gallery">
+                    <img src="@mainPhoto" alt="@Model.Rooms?.Name" class="admin-room-details-main-img" />
+
+                    @if (photos.Any())
+                    {
+                        <div class="admin-room-details-thumbs">
+                            @foreach (var photo in photos.Take(5))
+                            {
+                                <img src="@photo" alt="@Model.Rooms?.Name" />
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="admin-room-details-info">
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-door-open"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Стая</span>
+                            <h2>@Model.Rooms?.Name</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Клиент</span>
+                            <h2>@Model.Clients?.FirstName @Model.Clients?.LastName</h2>
+                            <p>@Model.Clients?.Email</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Настаняване</span>
+                            <h2>@Model.DateIn.ToString("dd.MM.yyyy")</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-calendar-x"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Напускане</span>
+                            <h2>@Model.DateOut.ToString("dd.MM.yyyy")</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-moon-stars"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Нощувки</span>
+                            <h2>@nights</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-currency-euro"></i>
+                        </div>
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Обща цена</span>
+                            <h2>@totalPrice€</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="admin-form-actions">
+                <a asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-primary admin-submit-btn">
+                    <i class="bi bi-pencil-square"></i>
+                    Редактирай
+                </a>
+
+                <a asp-action="Delete"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-outline-danger admin-cancel-btn">
+                    <i class="bi bi-trash"></i>
+                    Изтрий
+                </a>
+            </div>
+
+        </div>
+    </div>
 </div>
