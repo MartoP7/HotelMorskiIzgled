@@ -661,63 +661,139 @@ a {
 
 
 
-/*PLAN PAGE =======================================*/
+/* =========================
+   PLAN PAGE
+   ========================= */
 
 .floor-plan-page {
-    padding: 0px 0 80px;
-    background: linear-gradient(to bottom, #f8fafc 0%, #eef4f8 100%);
+    position: relative;
     min-height: 100vh;
+    background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    margin-top: -150px;
+    padding: 190px 70px 60px;
 }
+
+.floor-plan-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20, 30, 40, 0.30);
+    z-index: 1;
+}
+
+.floor-plan-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.floor-plan-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 2.4rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.floor-plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+    .floor-plan-header h1 {
+        margin: 0;
+        color: #111;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .floor-plan-header p {
+        margin: 0.5rem 0 0;
+        color: #666;
+    }
+
+/* LAYOUT */
 
 .floor-layout {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 2rem;
+    grid-template-columns: 220px 1fr;
+    gap: 1.6rem;
     align-items: start;
 }
 
+/* SIDEBAR */
+
 .floor-sidebar {
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid #e7edf4;
-    border-radius: 24px;
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 22px;
     padding: 1rem;
-    box-shadow: 0 12px 30px rgba(31, 78, 121, 0.08);
     position: sticky;
     top: 120px;
 }
 
+    .floor-sidebar h4 {
+        margin: 0 0 1rem;
+        color: #111;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
 .floor-btn {
     width: 100%;
-    border: none;
-    background: var(--primarybtn);
-    color: white;
-    padding: 0.95rem 1rem;
-    border-radius: 12px;
+    min-height: 52px;
+    border: 1px solid #dcdcdc;
+    background: #ffffff;
+    color: #333;
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
     font-weight: 600;
-    text-align: left;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.75rem;
     transition: 0.2s ease;
     cursor: pointer;
-    text-align:center;
-/*    text-shadow: 1px 1px 20px black;*/
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
     .floor-btn:last-child {
         margin-bottom: 0;
     }
 
-    .floor-btn:hover {
-        background: var(--hoverbtn);
+    .floor-btn i {
+        color: #0d6efd;
+        font-size: 1.1rem;
     }
 
+    .floor-btn:hover {
+        border-color: #0d6efd;
+        box-shadow: 0 6px 18px rgba(13, 110, 253, 0.10);
+        transform: translateY(-2px);
+    }
+
+    .floor-btn.active {
+        background: #0d6efd;
+        color: #ffffff;
+        border-color: #0d6efd;
+        box-shadow: 0 8px 18px rgba(13, 110, 253, 0.25);
+    }
+
+        .floor-btn.active i {
+            color: #ffffff;
+        }
+
+/* DISPLAY */
 
 .floor-display {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid #e7edf4;
-    border-radius: 28px;
-    padding: 1.5rem;
-    box-shadow: 0 16px 36px rgba(31, 78, 121, 0.10);
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 24px;
+    padding: 1.4rem;
     min-height: 650px;
 }
 
@@ -729,22 +805,50 @@ a {
         display: block;
     }
 
-    .floor-panel h2 {
-        color: #173a5a;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
+.floor-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+    .floor-panel-header h2 {
+        margin: 0;
+        color: #111;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .floor-panel-header span {
+        background: #eef5ff;
+        color: #0d6efd;
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        font-weight: 600;
+        white-space: nowrap;
     }
 
 .floor-image {
     width: 100%;
-    max-width: 900px;
+    max-height: 720px;
+    object-fit: contain;
     border-radius: 18px;
     border: 1px solid #dbe4ee;
-    background: #fff;
+    background: #ffffff;
     display: block;
+    padding: 0.5rem;
 }
 
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 991.98px) {
+    .floor-plan-page {
+        padding: 160px 28px 50px;
+    }
+
     .floor-layout {
         grid-template-columns: 1fr;
     }
@@ -752,13 +856,16 @@ a {
     .floor-sidebar {
         position: static;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
     }
+
+        .floor-sidebar h4 {
+            grid-column: 1 / -1;
+        }
 
     .floor-btn {
         margin-bottom: 0;
-        text-align: center;
     }
 
     .floor-display {
@@ -768,57 +875,31 @@ a {
 
 @media (max-width: 767.98px) {
     .floor-plan-page {
-        padding: 120px 0 60px;
+        padding: 130px 18px 40px;
+        background-attachment: scroll;
+    }
+
+    .floor-plan-card {
+        padding: 1.3rem;
+        border-radius: 24px;
+    }
+
+    .floor-plan-header h1 {
+        font-size: 2rem;
     }
 
     .floor-sidebar {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .floor-panel h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* HOTEL PLAN BACKGROUND */
-
-.hotel-plan-bg {
-    position: relative;
-    min-height: 100vh;
-    padding: 190px 0;
-    background: url('/images/beach.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-attachment: fixed;
-    overflow: hidden;
-    margin-top: -150px;
-    margin-bottom: -230px;
-}
-
-    /* Blur layer */
-
-    .hotel-plan-bg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        backdrop-filter: blur(8px);
-        background: rgba(0,0,0,0.25);
-        z-index: 0;
+    .floor-panel-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-/* White canvas */
-
-.hotel-plan-container {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 1600px;
-    margin: auto;
-    background: white;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .floor-panel-header h2 {
+            font-size: 1.6rem;
+        }
 }
 
 
@@ -1724,179 +1805,206 @@ a {
 
 
 
-
-
 /* =========================
    ABOUT PAGE
-========================= */
+   ========================= */
 
 .about-page {
     position: relative;
     min-height: 100vh;
-    padding: 40px 0;
-    overflow: hidden;
+    background: url('/images/beach.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    margin-top: -150px;
+    padding: 190px 70px 60px;
 }
 
-    /* Background */
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20, 30, 40, 0.30);
+    z-index: 1;
+}
 
-    .about-page::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: url('/images/beach.jpg') center/cover no-repeat;
-        background-attachment: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-size: cover;
-        filter: blur(8px);
-        z-index: -2;
-    }
-
-    /* Dark overlay */
-
-    .about-page::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.35);
-        z-index: -1;
-    }
-
-/* Main white container */
-
-.about-wrapper {
+.about-container {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    max-width: 1600px;
-    margin: auto;
-    background: white;
-    border-radius: 30px;
-    padding: 70px;
-    padding-top: 40px;
-    padding-top: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
-/* Title */
+.about-card-main {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 2.4rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
 
-.about-title {
+.about-header {
     text-align: center;
     margin-bottom: 2.4rem;
 }
 
-/* Sections */
+    .about-header h1 {
+        margin: 0;
+        color: #111;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .about-header p {
+        max-width: 780px;
+        margin: 0.55rem auto 0;
+        color: #666;
+        line-height: 1.6;
+    }
+
+/* SECTIONS */
 
 .about-section {
-    display: flex;
-    gap: 50px;
-    margin-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
     align-items: stretch;
+    margin-bottom: 1.6rem;
 }
 
-.reverse {
-    flex-direction: row-reverse;
-}
+    .about-section:last-child {
+        margin-bottom: 0;
+    }
 
-/* Cards */
+    .about-section.reverse .about-text-card {
+        order: 2;
+    }
 
-.about-card {
-    flex: 1;
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    .about-section.reverse .about-image-card {
+        order: 1;
+    }
+
+/* TEXT CARD */
+
+.about-text-card {
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 24px;
+    padding: 2.3rem;
     display: flex;
     flex-direction: column;
-}
-
-/* Text card */
-
-.text-card {
-    padding: 45px;
     justify-content: center;
 }
 
-    .text-card h2 {
-        font-size: 38px;
-        margin-bottom: 25px;
-        color: #111;
+.about-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    background: #eef5ff;
+    color: #0d6efd;
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+    .about-label i {
+        font-size: 1rem;
     }
 
-    .text-card p {
-        font-size: 18px;
-        line-height: 1.9;
-        color: #444;
-        margin-bottom: 20px;
+.about-text-card h2 {
+    margin: 0 0 1rem;
+    color: #111;
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.about-text-card p {
+    margin: 0 0 1rem;
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+    .about-text-card p:last-child {
+        margin-bottom: 0;
     }
 
-/* Image card */
+/* IMAGE CARD */
 
-.image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    flex: 1;
+.about-image-card {
+    border-radius: 24px;
+    overflow: hidden;
     min-height: 420px;
-}
-/* Text */
-
-.text-box {
-    flex: 1;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-    .text-box h2 {
-        font-size: 40px;
-        margin-bottom: 25px;
-        color: #111;
-    }
-
-    .text-box p {
-        font-size: 18px;
-        line-height: 1.9;
-        color: #444;
-        margin-bottom: 20px;
-    }
-
-/* Image */
-
-.image-box {
-    flex: 1;
-}
-
-    .image-box img {
+    .about-image-card img {
         width: 100%;
-        height: 420px;
+        height: 100%;
+        min-height: 420px;
         object-fit: cover;
-        border-radius: 25px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        display: block;
+        transition: 0.3s ease;
     }
 
-/* Responsive */
+    .about-image-card:hover img {
+        transform: scale(1.04);
+    }
 
-@media (max-width: 1000px) {
+/* RESPONSIVE */
 
-    .about-wrapper {
-        width: 92%;
-        padding: 40px 25px;
+@media (max-width: 991.98px) {
+    .about-page {
+        padding: 160px 28px 50px;
     }
 
     .about-section,
-    .reverse {
-        flex-direction: column;
+    .about-section.reverse {
+        grid-template-columns: 1fr;
     }
 
-    .about-title {
-        font-size: 42px;
-    }
+        .about-section.reverse .about-text-card,
+        .about-section.reverse .about-image-card {
+            order: initial;
+        }
 
-    .text-box h2 {
-        font-size: 32px;
-    }
-
-    .image-box img {
-        height: 300px;
+    .about-image-card,
+    .about-image-card img {
+        min-height: 330px;
     }
 }
+
+@media (max-width: 767.98px) {
+    .about-page {
+        padding: 130px 18px 40px;
+        background-attachment: scroll;
+    }
+
+    .about-card-main {
+        padding: 1.3rem;
+        border-radius: 24px;
+    }
+
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-text-card {
+        padding: 1.4rem;
+    }
+
+        .about-text-card h2 {
+            font-size: 1.6rem;
+        }
+
+    .about-image-card,
+    .about-image-card img {
+        min-height: 260px;
+    }
+}
+
+
 
 /* =========================
    LOGIN / REGISTER

@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\rooms\\indexreservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\rooms\\indexreservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\reservations\\myreservations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\reservations\\myreservations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\reservations\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\reservations\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,60 +21,34 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeToolTip": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAIsGAAAAAAAAAAAkwKIGAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKIHAAAAAAAAAAAkwNQHAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-05-11T09:17:30.564Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IndexReservation.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
-              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml*",
-              "RelativeToolTip": "ASPMorskiIzgled\\Views\\Rooms\\IndexReservation.cshtml*",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAwwEUBAAAqAAAAAAAAAA==",
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "ASPMorskiIzgled\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAwwKsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-12T23:13:57.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Reservations\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Reservations\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Reservations\\Index.cshtml",
-              "RelativeToolTip": "ASPMorskiIzgled\\Views\\Reservations\\Index.cshtml",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAAAOcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-12T23:05:36.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MyReservations.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Reservations\\MyReservations.cshtml",
-              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Reservations\\MyReservations.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Reservations\\MyReservations.cshtml",
-              "RelativeToolTip": "ASPMorskiIzgled\\Views\\Reservations\\MyReservations.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-12T22:10:51.955Z",
+              "WhenOpened": "2026-05-12T23:43:48.591Z",
               "EditorCaption": ""
             }
           ]

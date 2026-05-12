@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASPMorskiIzgled")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aa2d3d4eaaaeb9702a2abbb9622f9303cc55910")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4fc8d60fd1c5cfa56e0d8c927b80af2109aac86")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASPMorskiIzgled")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASPMorskiIzgled")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
