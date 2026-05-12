@@ -24,6 +24,70 @@ namespace ASPMorskiIzgled.Controllers
             _userManager = userManager;
         }
 
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> MyReservations()
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var reservations = await _context.Reservations
+                .Include(r => r.Rooms)
+                .Include(r => r.Clients)
+                .Where(r => r.ClientId == userId)
+                .OrderByDescending(r => r.DateIn)
+                .ToListAsync();
+
+            return View(reservations);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelMyReservation(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var reservation = await _context.Reservations
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            if (reservation.ClientId != userId)
+            {
+                return Forbid();
+            }
+
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(MyReservations));
+        }
+
+
+
+
+
+
+
+
+
+
+
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
@@ -84,7 +148,7 @@ namespace ASPMorskiIzgled.Controllers
             };
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(MyReservations));
 
         }
 

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ASPMorskiIzgled.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Моите резервации";
+}
+
+<div class="my-reservations-page">
+    <div class="my-reservations-overlay"></div>
+
+    <div class="my-reservations-container">
+        <div class="my-reservations-card">
+
+            <div class="my-reservations-header">
+                <div>
+                    <h1>Моите резервации</h1>
+                    <p>Тук можеш да видиш всички направени от теб резервации.</p>
+                </div>
+
+                @* <a asp-controller="Reservations"
+                   asp-action="IndexReservation"
+                   class="btn btn-primary my-reservations-new-btn">
+                    <i class="bi bi-plus-circle"></i>
+                    Нова резервация
+                </a> *@
+            </div>
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="my-reservations-grid">
+                    @foreach (var item in Model)
+                    {
+                        var photos = item.Rooms?.Photo?
+                        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(p => p.Trim())
+                        .ToList() ?? new List<string>();
+
+                        var mainPhoto = photos.FirstOrDefault() ?? "/images/no-image.jpg";
+
+                        var nights = (item.DateOut - item.DateIn).Days;
+                        var totalPrice = nights * item.Rooms.Price;
+
+                        <div class="my-reservation-card">
+
+                            <div class="my-reservation-image">
+                                <img src="@mainPhoto" alt="@item.Rooms?.Name" />
+                            </div>
+
+                            <div class="my-reservation-body">
+
+                                <div class="my-reservation-details">
+                                    <h2>@item.Rooms?.Name</h2>
+
+                                    <div class="my-reservation-info">
+                                        <p>
+                                            <i class="bi bi-calendar-check"></i>
+                                            <strong>Настаняване:</strong>
+                                            @item.DateIn.ToString("dd.MM.yyyy")
+                                        </p>
+
+                                        <p>
+                                            <i class="bi bi-calendar-x"></i>
+                                            <strong>Напускане:</strong>
+                                            @item.DateOut.ToString("dd.MM.yyyy")
+                                        </p>
+
+                                        <p>
+                                            <i class="bi bi-moon-stars"></i>
+                                            <strong>Нощувки:</strong>
+                                            @nights
+                                        </p>
+
+                                        <p>
+                                            <i class="bi bi-currency-euro"></i>
+                                            <strong>Общо:</strong>
+                                            @totalPrice€
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <form asp-action="CancelMyReservation"
+                                      asp-route-id="@item.Id"
+                                      method="post"
+                                      onsubmit="return confirm('Сигурни ли сте, че искате да премахнете тази резервация?');">
+                                    <button type="submit" class="btn btn-outline-danger my-reservation-delete-btn">
+                                        <i class="bi bi-trash"></i>
+                                        Премахни
+                                    </button>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="my-reservations-empty">
+                    <i class="bi bi-info-circle"></i>
+                    <h2>Нямаш направени резервации</h2>
+                    <p>Направи първата си резервация в хотел Морски Изглед.</p>
+
+                    <a asp-controller="Rooms"
+                       asp-action="IndexReservation"
+                       class="btn btn-primary">
+                        Направи резервация
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
