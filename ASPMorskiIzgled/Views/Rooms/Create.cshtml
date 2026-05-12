@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.Room
+﻿@* @model ASPMorskiIzgled.Models.Room
 
 @{
     ViewData["Title"] = "Create";
@@ -28,12 +28,12 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="SleepingCot" /> Детска кошара@* @Html.DisplayNameFor(model => model.SleepingCot )*@
+                    <input class="form-check-input" asp-for="SleepingCot" /> Детска кошара
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="SofaBed" /> Разтегателен диван@*@Html.DisplayNameFor(model => model.SofaBed ) *@
+                    <input class="form-check-input" asp-for="SofaBed" /> Разтегателен диван
                 </label>
             </div>
             <div class="form-group">
@@ -46,11 +46,7 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="DateReg" class="control-label"></label>
-                <input asp-for="DateReg" class="form-control" />
-                <span asp-validation-for="DateReg" class="text-danger"></span>
-            </div> *@
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -64,4 +60,133 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@
+
+
+
+
+
+@model ASPMorskiIzgled.Models.Room
+
+@{
+    ViewData["Title"] = "Добавяне на стая";
+}
+
+<div class="admin-page">
+    <div class="admin-overlay"></div>
+
+    <div class="admin-container">
+        <div class="admin-card admin-form-card">
+
+            <div class="admin-header">
+                <div>
+                    <h1>Добави стая</h1>
+                    <p>Създай нова стая и въведи всички нужни данни.</p>
+                </div>
+
+                <a asp-action="Index" class="btn btn-outline-secondary admin-back-btn">
+                    <i class="bi bi-arrow-left"></i>
+                    Назад
+                </a>
+            </div>
+
+            <form asp-action="Create" class="admin-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="admin-form-grid">
+
+                    <div class="admin-form-group">
+                        <label asp-for="Name" class="admin-label">Име на стаята</label>
+                        <div class="admin-input-wrapper">
+                            <i class="bi bi-door-open"></i>
+                            <input asp-for="Name" class="form-control admin-input" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label asp-for="RoomTypeId" class="admin-label">Вид стая</label>
+                        <div class="admin-input-wrapper">
+                            <i class="bi bi-building"></i>
+                            <select asp-for="RoomTypeId" class="form-select admin-input" asp-items="ViewBag.RoomTypeId"></select>
+                        </div>
+                        <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label asp-for="Price" class="admin-label">Цена</label>
+                        <div class="admin-input-wrapper">
+                            <i class="bi bi-currency-euro"></i>
+                            <input asp-for="Price" class="form-control admin-input" />
+                        </div>
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="admin-form-group">
+                    <label asp-for="Photo" class="admin-label">Снимки</label>
+                    <div class="admin-input-wrapper admin-textarea-wrapper">
+                        <i class="bi bi-images"></i>
+                        <textarea asp-for="Photo"
+                                  class="form-control admin-input admin-textarea"
+                                  rows="4"
+                                  placeholder="/images/room1.jpg;/images/room1-2.jpg;/images/room1-3.jpg"></textarea>
+                    </div>
+                    <small class="admin-help-text">
+                        Въведи няколко снимки, разделени със символ <strong>;</strong>. Първата снимка ще бъде главна.
+                    </small>
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+
+                <div class="admin-form-group">
+                    <label asp-for="Description" class="admin-label">Описание</label>
+                    <div class="admin-input-wrapper admin-textarea-wrapper">
+                        <i class="bi bi-card-text"></i>
+                        <textarea asp-for="Description"
+                                  class="form-control admin-input admin-textarea"
+                                  rows="5"></textarea>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="admin-checkbox-grid">
+                    <label class="admin-checkbox-card">
+                        <input asp-for="SleepingCot" class="form-check-input" />
+                        <span>
+                            <i class="fa-solid fa-baby"></i>
+                            Детска кошара
+                        </span>
+                    </label>
+
+                    <label class="admin-checkbox-card">
+                        <input asp-for="SofaBed" class="form-check-input" />
+                        <span>
+                            <i class="fa-solid fa-couch"></i>
+                            Разтегателен диван
+                        </span>
+                    </label>
+                </div>
+
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-primary admin-submit-btn">
+                        <i class="bi bi-check-circle"></i>
+                        Запази
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary admin-cancel-btn">
+                        Отказ
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

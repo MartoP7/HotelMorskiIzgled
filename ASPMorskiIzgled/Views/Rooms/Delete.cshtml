@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.Room
+﻿@* @model ASPMorskiIzgled.Models.Room
 
 @{
     ViewData["Title"] = "Delete";
@@ -42,7 +42,7 @@
             @Html.DisplayFor(model => model.SofaBed)
         </dd>
         <dt class = "col-sm-2">
-            @* @Html.DisplayNameFor(model => model.Photo) *@
+           
             <img src="@Model.Photo" width="64" />
         </dt>
         <dd class = "col-sm-10">
@@ -67,4 +67,113 @@
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
+</div>
+ *@
+
+
+
+@model ASPMorskiIzgled.Models.Room
+
+@{
+    ViewData["Title"] = "Изтриване на стая";
+
+    var photos = Model.Photo?
+        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToList() ?? new List<string>();
+
+    var mainPhoto = photos.FirstOrDefault() ?? "/images/no-image.jpg";
+}
+
+<div class="admin-page">
+    <div class="admin-overlay"></div>
+
+    <div class="admin-container">
+        <div class="admin-card admin-delete-card">
+
+            <div class="admin-delete-warning">
+                <div class="admin-delete-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+
+                <h1>Изтриване на стая</h1>
+                <p>
+                    Сигурни ли сте, че искате да изтриете тази стая?
+                    Това действие не може да бъде отменено.
+                </p>
+            </div>
+
+            <div class="admin-room-delete-preview">
+                <div>
+                    <img src="@mainPhoto" alt="@Model.Name" class="admin-room-delete-img" />
+                </div>
+
+                <div class="admin-details-content">
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-door-open"></i>
+                        </div>
+
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Име на стаята</span>
+                            <h2>@Model.Name</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Вид стая</span>
+                            <h2>@Model.RoomTypes?.Name</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-detail-box">
+                        <div class="admin-detail-icon">
+                            <i class="bi bi-currency-euro"></i>
+                        </div>
+
+                        <div class="admin-detail-info">
+                            <span class="admin-detail-label">Цена</span>
+                            <h2>@Model.Price€ / нощувка</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-room-options">
+                        <div class="admin-option-pill @(Model.SleepingCot ? "yes" : "no")">
+                            <i class="fa-solid fa-baby"></i>
+                            Кошара: @(Model.SleepingCot ? "Да" : "Не")
+                        </div>
+
+                        <div class="admin-option-pill @(Model.SofaBed ? "yes" : "no")">
+                            <i class="fa-solid fa-couch"></i>
+                            Диван: @(Model.SofaBed ? "Да" : "Не")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <form asp-action="Delete" class="admin-delete-form">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-danger admin-delete-btn">
+                        <i class="bi bi-trash-fill"></i>
+                        Изтрий окончателно
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary admin-cancel-btn">
+                        <i class="bi bi-arrow-left"></i>
+                        Отказ
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>
