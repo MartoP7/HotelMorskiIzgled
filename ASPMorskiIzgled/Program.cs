@@ -54,6 +54,17 @@ namespace ASPMorskiIzgled
             app.MapRazorPages()
                .WithStaticAssets();
 
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                DbSeeder.SeedRooms(context);
+            }
+
+
+
+
             app.Run();
         }
     }

@@ -1,17 +1,8 @@
-﻿@* @{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
- *@
-
+﻿
 
 @* NEW INDEX =========================================================================================== *@
 
-@{
+@* @{
     ViewData["Title"] = "Начало";
 }
 
@@ -25,7 +16,7 @@
             </div>
 
             <div class="welcome-text">
-                @* <span class="welcome-badge">Добре дошли</span> *@
+                
                 <h1>Хотел „Морски Изглед“</h1>
                 <p>
                     Насладете се на спокойствие, уют и красива морска атмосфера.
@@ -174,6 +165,282 @@
             </iframe>
         </div>
 
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-top">
+            <h2>Хотел Морски Изглед</h2>
+            <p>Комфорт, спокойствие и незабравима почивка край морето.</p>
+        </div>
+
+        <div class="footer-grid">
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-telephone"></i>
+                    Контакти
+                </h3>
+
+                <p>
+                    <i class="bi bi-phone"></i>
+                    +359 888 123 456
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope"></i>
+                    info@morskigled.bg
+                </p>
+
+                <p>
+                    <i class="bi bi-geo-alt"></i>
+                    Несебър, България
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-share"></i>
+                    Социални мрежи
+                </h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" alt="Facebook" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" alt="Instagram" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" alt="TikTok" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-compass"></i>
+                    Навигация
+                </h3>
+
+                <a asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-house-door"></i>
+                    Начало
+                </a>
+
+                <a asp-controller="Home" asp-action="Plan">
+                    <i class="bi bi-map"></i>
+                    Схема
+                </a>
+
+                <a asp-controller="Home" asp-action="About">
+                    <i class="bi bi-info-circle"></i>
+                    За нас
+                </a>
+
+                <a asp-controller="Rooms" asp-action="IndexReservation">
+                    <i class="bi bi-calendar-check"></i>
+                    Резервация
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer> *@
+
+
+
+
+
+
+@{
+    ViewData["Title"] = "Начало";
+}
+
+<section class="home-hero-section">
+    <div class="home-hero-overlay"></div>
+
+    <div class="home-container">
+        <div class="home-hero-card" id="about-hotel">
+
+            <div class="home-hero-image">
+                <img src="~/images/hotel.png" alt="Хотел Морски Изглед" />
+            </div>
+
+            <div class="home-hero-content">
+                <span class="home-label">
+                    <i class="bi bi-water"></i>
+                    Добре дошли
+                </span>
+
+                <h1>Хотел „Морски Изглед“</h1>
+
+                <p>
+                    Комфортен хотел край морето, създаден за спокойна почивка,
+                    приятна атмосфера и красива гледка към плажа.
+                </p>
+
+                <div class="home-hero-actions">
+                    <a asp-controller="Rooms"
+                       asp-action="IndexReservation"
+                       class="btn btn-primary home-main-btn">
+                        <i class="bi bi-calendar-check"></i>
+                        Резервирай
+                    </a>
+
+                    <a href="#amenities" class="btn btn-outline-primary home-secondary-btn">
+                        <i class="bi bi-arrow-down-circle"></i>
+                        Виж повече
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="amenities-section" id="amenities">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-label">
+                <i class="bi bi-stars"></i>
+                Удобства
+            </span>
+
+            <h2>Всичко необходимо за добра почивка</h2>
+            <p>Подбрани удобства за комфортен и безгрижен престой.</p>
+        </div>
+
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <img src="~/images/icons/beach.png" alt="Плаж" />
+                <span>Плаж</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/wifi.png" alt="Wi-Fi" />
+                <span>Wi-Fi</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/food.png" alt="Ресторант" />
+                <span>Ресторант</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/ac.png" alt="Климатик" />
+                <span>Климатик</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/tv.png" alt="Телевизор" />
+                <span>Телевизор</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/fridge.png" alt="Хладилник" />
+                <span>Хладилник</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/lift.png" alt="Асансьор" />
+                <span>Асансьор</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/guard.png" alt="Охрана" />
+                <span>Охрана</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/towels.png" alt="Спално бельо" />
+                <span>Спално бельо</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/store.png" alt="Магазин" />
+                <span>Магазин</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/airport.png" alt="Трансфер" />
+                <span>Трансфер</span>
+            </div>
+
+            <div class="amenity-item">
+                <img src="~/images/icons/stairs.png" alt="Достъп</" />
+                <span>Достъп</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="location-section" id="hotel-plan">
+    <div class="container location-container">
+        <div class="section-heading">
+            <span class="section-label">
+                <i class="bi bi-geo-alt"></i>
+                Локация
+            </span>
+
+            <h2>Близо до морето</h2>
+            <p>Хотелът се намира на удобна локация до плажа и основните атракции.</p>
+        </div>
+
+        <div class="advantages-section">
+
+            <div class="advantage-card">
+                <div class="advantage-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+
+                <div class="advantage-text">
+                    <h3>На 50м от плажа</h3>
+                    <p>Бърз достъп до морската ивица и приятни разходки край брега.</p>
+                </div>
+            </div>
+
+            <div class="advantage-card">
+                <div class="advantage-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+
+                <div class="advantage-text">
+                    <h3>Удобна локация</h3>
+                    <p>Близо до заведения, магазини и популярни места за разходка.</p>
+                </div>
+            </div>
+
+            <div class="advantage-card">
+                <div class="advantage-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+
+                <div class="advantage-text">
+                    <h3>Паркинг</h3>
+                    <p>Осигурено удобство за гостите, които пътуват с автомобил.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="map-card">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.147810677405!2d27.710000000000004!3d42.659999999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a69f0000000001%3A0x1111111111111111!2sNessebar!5e0!3m2!1sbg!2sbg!4v1710000000000!5m2!1sbg!2sbg"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
 </section>
 
