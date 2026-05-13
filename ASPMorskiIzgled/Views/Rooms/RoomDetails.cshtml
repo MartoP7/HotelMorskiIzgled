@@ -1,4 +1,4 @@
-﻿@model ASPMorskiIzgled.Models.Room
+﻿@* @model ASPMorskiIzgled.Models.Room
 
 @{
     ViewData["Title"] = "Детайли за стая";
@@ -122,6 +122,226 @@
     </div>
 </footer>
 
+
+<script>
+    function changeMainImage(clickedThumb) {
+        const mainImage = document.getElementById("mainRoomImage");
+        const fullImage = clickedThumb.getAttribute("data-full");
+
+        const preload = new Image();
+
+        preload.onload = function () {
+            mainImage.src = fullImage;
+        };
+
+        preload.src = fullImage;
+
+        document.querySelectorAll(".thumbnail-image").forEach(img => {
+            img.classList.remove("active-thumb");
+        });
+
+        clickedThumb.classList.add("active-thumb");
+    }
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} *@
+
+
+
+@model ASPMorskiIzgled.Models.Room
+
+@{
+    ViewData["Title"] = "Детайли за стая";
+
+    var photos = Model.Photo?
+        .Split(';', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToList() ?? new List<string>();
+
+    var mainPhoto = photos.FirstOrDefault() ?? "/images/no-image.jpg";
+}
+
+<div class="room-details-page">
+    <div class="room-details-overlay"></div>
+
+    <div class="room-details-container">
+        <div class="room-details-card">
+
+            <div class="room-details-left">
+                <div class="room-main-image">
+                    <img id="mainRoomImage" src="@mainPhoto" alt="@Model.Name" />
+                </div>
+
+                @if (photos.Any())
+                {
+                    <div class="room-thumbnails">
+                        @foreach (var photo in photos)
+                        {
+                            <img src="@photo"
+                                 data-full="@photo"
+                                 alt="@Model.Name"
+                                 onclick="changeMainImage(this)"
+                                 class="thumbnail-image @(photo == mainPhoto ? "active-thumb" : "")" />
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="room-details-right">
+                <span class="room-details-label">
+                    <i class="bi bi-door-open"></i>
+                    Детайли за стая
+                </span>
+
+                <h1>@Model.Name</h1>
+
+                <div class="room-description">
+                    <h3>Описание</h3>
+                    <p>@Model.Description</p>
+                </div>
+
+                <div class="room-price-box">
+                    <i class="bi bi-currency-euro"></i>
+                    <div>
+                        <span>Цена</span>
+                        <strong>@Model.Price€ / нощувка</strong>
+                    </div>
+                </div>
+
+                <div class="room-info-list">
+                    <div class="room-info-item">
+                        <i class="bi bi-building"></i>
+                        <div>
+                            <span>Тип стая</span>
+                            <strong>@Model.RoomTypes.Name</strong>
+                        </div>
+                    </div>
+
+                    <div class="room-info-item">
+                        <i class="fa-solid fa-baby-carriage"></i>
+                        <div>
+                            <span>Кошара</span>
+                            <strong>@(Model.SleepingCot ? "Да" : "Не")</strong>
+                        </div>
+                    </div>
+
+                    <div class="room-info-item">
+                        <i class="fa-solid fa-couch"></i>
+                        <div>
+                            <span>Разтегателен диван</span>
+                            <strong>@(Model.SofaBed ? "Да" : "Не")</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <a asp-controller="Reservations"
+                   asp-action="CreateReservation"
+                   asp-route-roomId="@Model.Id"
+                   asp-route-dateIn="@ViewBag.DateIn"
+                   asp-route-dateOut="@ViewBag.DateOut"
+                   class="btn btn-primary room-details-reserve-btn">
+                    <i class="bi bi-check-circle"></i>
+                    Резервирай
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-top">
+            <h2>Хотел Морски Изглед</h2>
+            <p>Комфорт, спокойствие и незабравима почивка край морето.</p>
+        </div>
+
+        <div class="footer-grid">
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-telephone"></i>
+                    Контакти
+                </h3>
+
+                <p>
+                    <i class="bi bi-phone"></i>
+                    +359 888 123 456
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope"></i>
+                    info@morskigled.bg
+                </p>
+
+                <p>
+                    <i class="bi bi-geo-alt"></i>
+                    Несебър, България
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-share"></i>
+                    Социални мрежи
+                </h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" alt="Facebook" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" alt="Instagram" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" alt="TikTok" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>
+                    <i class="bi bi-compass"></i>
+                    Навигация
+                </h3>
+
+                <a asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-house-door"></i>
+                    Начало
+                </a>
+
+                <a asp-controller="Home" asp-action="Plan">
+                    <i class="bi bi-map"></i>
+                    Схема
+                </a>
+
+                <a asp-controller="Home" asp-action="About">
+                    <i class="bi bi-info-circle"></i>
+                    За нас
+                </a>
+
+                <a asp-controller="Reservations" asp-action="IndexReservation">
+                    <i class="bi bi-calendar-check"></i>
+                    Резервация
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
 
 <script>
     function changeMainImage(clickedThumb) {

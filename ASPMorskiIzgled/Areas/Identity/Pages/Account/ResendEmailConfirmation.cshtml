@@ -1,0 +1,113 @@
+﻿@* @page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2>Enter your email.</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email" class="form-label"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+ *@
+
+@page
+@model ResendEmailConfirmationModel
+
+@{
+    ViewData["Title"] = "Потвърждение на имейл";
+}
+
+<div class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <div class="auth-container auth-small-container">
+        <div class="auth-card">
+
+            <div class="auth-header">
+                <h1>Потвърждение на имейл</h1>
+                <p>Въведете имейла си, за да получите нов линк за потвърждение.</p>
+            </div>
+
+            <div class="auth-single-layout">
+                <section class="auth-form-card">
+                    <div class="auth-section-label">
+                        <i class="bi bi-envelope-check"></i>
+                        Ново потвърждение
+                    </div>
+
+                    <form method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-3" role="alert"></div>
+
+                        <div class="auth-form-group">
+                            <label asp-for="Input.Email" class="auth-label">Имейл</label>
+                            <div class="auth-input-wrapper">
+                                <i class="bi bi-envelope"></i>
+                                <input asp-for="Input.Email"
+                                       class="form-control auth-input"
+                                       aria-required="true"
+                                       placeholder="name@example.com" />
+                            </div>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary auth-submit-btn">
+                            <i class="bi bi-send"></i>
+                            Изпрати отново
+                        </button>
+
+                        <div class="auth-links">
+                            <a asp-page="./Login">Назад към вход</a>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="auth-info-card">
+                    <span class="auth-section-label">
+                        <i class="bi bi-info-circle"></i>
+                        Информация
+                    </span>
+
+                    <h2>Не получихте имейл?</h2>
+
+                    <div class="auth-benefits">
+                        <div>
+                            <i class="bi bi-envelope"></i>
+                            <span>Проверете правилно ли е въведен имейлът.</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-folder2-open"></i>
+                            <span>Проверете папка Spam / Junk.</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-clock-history"></i>
+                            <span>Понякога имейлът пристига след няколко минути.</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
