@@ -31,7 +31,7 @@ namespace ASPMorskiIzgled.Controllers
         // ROOM DETAILS
 
         [HttpGet]
-        public async Task<IActionResult> RoomDetails(int id, DateTime dateIn, DateTime dateOut)
+        public async Task<IActionResult> RoomDetails(int id, DateTime? dateIn, DateTime? dateOut)
         {
             var room = await _context.Rooms
                 .Include(r => r.RoomTypes)
@@ -42,8 +42,16 @@ namespace ASPMorskiIzgled.Controllers
                 return NotFound();
             }
 
-            ViewBag.DateIn = dateIn.ToString("yyyy-MM-dd");
-            ViewBag.DateOut = dateOut.ToString("yyyy-MM-dd");
+            if (dateIn.HasValue && dateOut.HasValue && dateIn.Value > DateTime.MinValue && dateOut.Value > DateTime.MinValue)
+            {
+                ViewBag.DateIn = dateIn.Value.ToString("yyyy-MM-dd");
+                ViewBag.DateOut = dateOut.Value.ToString("yyyy-MM-dd");
+                ViewBag.HasDates = true;
+            }
+            else
+            {
+                ViewBag.HasDates = false;
+            }
 
             return View(room);
         }

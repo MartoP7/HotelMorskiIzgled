@@ -238,15 +238,35 @@
                     </div>
                 </div>
 
-                <a asp-controller="Reservations"
-                   asp-action="CreateReservation"
-                   asp-route-roomId="@Model.Id"
-                   asp-route-dateIn="@ViewBag.DateIn"
-                   asp-route-dateOut="@ViewBag.DateOut"
-                   class="btn btn-primary room-details-reserve-btn">
-                    <i class="bi bi-check-circle"></i>
-                    Резервирай
-                </a>
+                
+                @if (ViewBag.HasDates == true)
+                {
+                    <a asp-controller="Reservations"
+                       asp-action="CreateReservation"
+                       asp-route-roomId="@Model.Id"
+                       asp-route-dateIn="@ViewBag.DateIn"
+                       asp-route-dateOut="@ViewBag.DateOut"
+                       class="btn btn-primary room-details-reserve-btn">
+                        <i class="bi bi-check-circle"></i>
+                        Резервирай
+                    </a>
+                }
+                else
+                {
+                    <div class="room-date-warning">
+                        <i class="bi bi-info-circle"></i>
+                        За да резервирате тази стая, първо изберете период на престой.
+                    </div>
+
+                    <a asp-controller="Rooms"
+                       asp-action="IndexReservation"
+                       class="btn btn-primary room-details-reserve-btn">
+                        <i class="bi bi-calendar-check"></i>
+                        Избери дати за резервация
+                    </a>
+                }
+
+
             </div>
 
         </div>

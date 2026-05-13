@@ -919,6 +919,114 @@ a {
 }
 
 
+/* =========================
+   CLICKABLE FLOOR ROOMS
+   ========================= */
+
+.floor-image-wrapper {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+    .floor-image-wrapper .floor-image {
+        width: 100%;
+        display: block;
+    }
+
+/* Общ стил за clickable стаите */
+.room-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    min-width: 46px;
+    height: 34px;
+    padding: 0 10px;
+    background: rgba(13, 110, 253, 0.85);
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.85);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.30);
+    transition: 0.2s ease;
+    z-index: 5;
+}
+
+    .room-hotspot:hover {
+        color: #ffffff;
+        background: #198754;
+        transform: translate(-50%, -50%) scale(1.08);
+        box-shadow: 0 10px 26px rgba(25, 135, 84, 0.35);
+    }
+
+/* Позиции според снимката */
+.room-101 {
+    top: 29%;
+    left: 71%;
+}
+
+.room-102 {
+    top: 29%;
+    left: 85%;
+}
+
+.room-103 {
+    top: 65%;
+    left: 85%;
+}
+
+.room-104 {
+    top: 65%;
+    left: 71%;
+}
+
+.room-105 {
+    top: 71%;
+    left: 58%;
+}
+
+.room-106 {
+    top: 71%;
+    left: 43%;
+}
+
+.room-107 {
+    top: 55%;
+    left: 21%;
+}
+
+.room-108 {
+    top: 47%;
+    left: 32%;
+}
+
+@media (max-width: 767.98px) {
+    .room-hotspot {
+        min-width: 34px;
+        height: 26px;
+        font-size: 0.7rem;
+        padding: 0 7px;
+        border-width: 1px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*ADMIN BUTTON =========================================*/
 .admin-link {
     background: #c62828;
@@ -2512,8 +2620,18 @@ a {
     }
 }
 
-
-
+.room-date-warning {
+    background: #eef5ff;
+    border: 1px solid #d7e8ff;
+    color: #0d6efd;
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 600;
+}
 
 
 
