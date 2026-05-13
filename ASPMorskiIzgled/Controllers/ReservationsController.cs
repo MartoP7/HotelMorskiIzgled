@@ -9,6 +9,7 @@ using ASPMorskiIzgled.Data;
 using ASPMorskiIzgled.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using ASPMorskiIzgled.Models.ViewModels;
 
 namespace ASPMorskiIzgled.Controllers
 {
@@ -24,6 +25,66 @@ namespace ASPMorskiIzgled.Controllers
             _userManager = userManager;
         }
 
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> Report(DateTime? dateFrom, DateTime? dateTo)
+        {
+            var from = dateFrom ?? new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            var to = dateTo ?? DateTime.Today;
+
+            if (to < from)
+            {
+                var temp = from;
+                from = to;
+                to = temp;
+            }
+
+            var reservations = await _context.Reservations
+                .Include(r => r.Rooms)
+                .Include(r => r.Clients)
+                .Where(r => r.DateIn <= to && r.DateOut >= from)
+                .OrderByDescending(r => r.DateIn)
+                .ToListAsync();
+
+            var reportItems = reservations.Select(r =>
+            {
+                var nights = (r.DateOut - r.DateIn).Days;
+                if (nights < 1)
+                {
+                    nights = 1;
+                }
+
+                var pricePerNight = Convert.ToDecimal(r.Rooms.Price);
+                var totalPrice = nights * pricePerNight;
+
+                return new ReservationReportItem
+                {
+                    Id = r.Id,
+                    RoomName = r.Rooms?.Name ?? "Няма стая",
+                    ClientName = $"{r.Clients?.FirstName} {r.Clients?.LastName}",
+                    DateIn = r.DateIn,
+                    DateOut = r.DateOut,
+                    Nights = nights,
+                    PricePerNight = pricePerNight,
+                    TotalPrice = totalPrice
+                };
+            }).ToList();
+
+            var model = new ReservationReportView
+            {
+                DateFrom = from,
+                DateTo = to,
+                TotalReservations = reportItems.Count,
+                TotalNights = reportItems.Sum(r => r.Nights),
+                TotalIncome = reportItems.Sum(r => r.TotalPrice),
+                AverageReservationIncome = reportItems.Any() ? reportItems.Average(r => r.TotalPrice) : 0,
+                Reservations = reportItems
+            };
+
+            return View(model);
+        }
 
 
 

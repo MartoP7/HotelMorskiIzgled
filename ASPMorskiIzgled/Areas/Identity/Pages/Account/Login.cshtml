@@ -279,40 +279,84 @@
     <div class="footer-overlay"></div>
 
     <div class="container footer-content">
+        <div class="footer-top">
+            <h2>Хотел Морски Изглед</h2>
+            <p>Комфорт, спокойствие и незабравима почивка край морето.</p>
+        </div>
+
         <div class="footer-grid">
+
             <div class="footer-section">
-                <h3>Контакти</h3>
-                <p>📞 +359 888 123 456</p>
-                <p>📧 info@morskigled.bg</p>
-                <p>📍 Несебър, България</p>
+                <h3>
+                    <i class="bi bi-telephone"></i>
+                    Контакти
+                </h3>
+
+                <p>
+                    <i class="bi bi-phone"></i>
+                    +359 888 123 456
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope"></i>
+                    info@morskigled.bg
+                </p>
+
+                <p>
+                    <i class="bi bi-geo-alt"></i>
+                    Несебър, България
+                </p>
             </div>
 
             <div class="footer-section">
-                <h3>Социални мрежи</h3>
+                <h3>
+                    <i class="bi bi-share"></i>
+                    Социални мрежи
+                </h3>
 
                 <a href="#" class="social-link">
-                    <img src="~/images/icons/facebook.png" />
+                    <img src="~/images/icons/facebook.png" alt="Facebook" />
                     <span>Facebook</span>
                 </a>
 
                 <a href="#" class="social-link">
-                    <img src="~/images/icons/instagram.png" />
+                    <img src="~/images/icons/instagram.png" alt="Instagram" />
                     <span>Instagram</span>
                 </a>
 
                 <a href="#" class="social-link">
-                    <img src="~/images/icons/tiktok.png" />
+                    <img src="~/images/icons/tiktok.png" alt="TikTok" />
                     <span>TikTok</span>
                 </a>
             </div>
 
             <div class="footer-section">
-                <h3>Навигация</h3>
-                <a asp-controller="Home" asp-action="Index">Начало</a>
-                <a asp-controller="Home" asp-action="Plan">Схема</a>
-                <a asp-controller="Home" asp-action="About">За нас</a>
-                <a asp-controller="Reservations" asp-action="IndexReservation">Резервация</a>
+                <h3>
+                    <i class="bi bi-compass"></i>
+                    Навигация
+                </h3>
+
+                <a asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-house-door"></i>
+                    Начало
+                </a>
+
+                <a asp-controller="Home" asp-action="Plan">
+                    <i class="bi bi-map"></i>
+                    Схема
+                </a>
+
+                <a asp-controller="Home" asp-action="About">
+                    <i class="bi bi-info-circle"></i>
+                    За нас
+                </a>
+
+                <a asp-controller="Rooms" asp-action="IndexReservation">
+                    <i class="bi bi-calendar-check"></i>
+                    Резервация
+                </a>
             </div>
+
         </div>
 
         <div class="footer-bottom">

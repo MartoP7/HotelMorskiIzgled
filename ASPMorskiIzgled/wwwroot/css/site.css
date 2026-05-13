@@ -3669,3 +3669,144 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+/* =========================
+   RESERVATION REPORT PAGE
+   ========================= */
+
+.report-filter-form {
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 22px;
+    padding: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.report-filter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1.2rem;
+    align-items: end;
+}
+
+.report-filter-actions {
+    display: flex;
+    align-items: end;
+}
+
+    .report-filter-actions .admin-submit-btn {
+        min-width: 180px;
+        height: 58px;
+        margin-bottom:1.4rem;
+    }
+
+.report-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.3rem;
+}
+
+.report-summary-card {
+    background: #f8fafc;
+    border: 1px solid #e9edf2;
+    border-radius: 20px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.report-summary-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+    .report-summary-icon.blue {
+        background: #0d6efd;
+    }
+
+    .report-summary-icon.green {
+        background: #198754;
+    }
+
+    .report-summary-icon.purple {
+        background: #6f42c1;
+    }
+
+    .report-summary-icon.orange {
+        background: #fd7e14;
+    }
+
+.report-summary-card span {
+    display: block;
+    color: #666;
+    font-size: 0.92rem;
+    margin-bottom: 0.15rem;
+}
+
+.report-summary-card strong {
+    display: block;
+    color: #111;
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.report-period-box {
+    background: #eef5ff;
+    border: 1px solid #d7e8ff;
+    color: #0d6efd;
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.report-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.report-income-text {
+    color: #198754;
+    white-space: nowrap;
+}
+
+@media (max-width: 1199.98px) {
+    .report-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .report-filter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .report-filter-actions {
+        grid-column: 1 / -1;
+    }
+
+        .report-filter-actions .admin-submit-btn {
+            width: 100%;
+        }
+}
+
+@media (max-width: 767.98px) {
+    .report-summary-grid,
+    .report-filter-grid {
+        grid-template-columns: 1fr;
+    }
+}
