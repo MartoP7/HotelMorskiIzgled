@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model IndexModel
 @{
     ViewData["Title"] = "Профил";
@@ -28,6 +28,60 @@
         </div>
 
         <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">
+            Запази промените
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@
+
+
+
+@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Профил";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="manage-section-header">
+    <span class="manage-section-label">
+        <i class="bi bi-person-check"></i>
+        Акаунт
+    </span>
+
+    <h2>@ViewData["Title"]</h2>
+    <p>Променете информацията в своя акаунт.</p>
+</div>
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="profile-card">
+    <form id="profile-form" method="post" class="manage-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+        <div class="manage-form-group">
+            <label asp-for="Username" class="manage-label">Потребителско име</label>
+            <div class="manage-input-wrapper">
+                <i class="bi bi-person"></i>
+                <input asp-for="Username" class="form-control manage-input" disabled />
+            </div>
+        </div>
+
+        <div class="manage-form-group">
+            <label asp-for="Input.PhoneNumber" class="manage-label">Телефон</label>
+            <div class="manage-input-wrapper">
+                <i class="bi bi-telephone"></i>
+                <input asp-for="Input.PhoneNumber" class="form-control manage-input" placeholder="Въведете телефонен номер" />
+            </div>
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <button id="update-profile-button" type="submit" class="btn btn-primary manage-submit-btn">
+            <i class="bi bi-check-circle"></i>
             Запази промените
         </button>
     </form>

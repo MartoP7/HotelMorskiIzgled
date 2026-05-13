@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model LoginModel
 
 @{
@@ -143,6 +143,183 @@
     </div>
 </footer>
 
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@
+
+
+
+
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <div class="auth-header">
+                <h1>Добре дошли</h1>
+                <p>Влезте в профила си, за да управлявате своите резервации.</p>
+            </div>
+
+            <div class="auth-layout">
+                <section class="auth-form-card">
+                    <div class="auth-section-label">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Вход в акаунт
+                    </div>
+
+                    <form id="account" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+
+                        <div class="auth-form-group">
+                            <label asp-for="Input.UserName" class="auth-label">Потребителско име</label>
+                            <div class="auth-input-wrapper">
+                                <i class="bi bi-person"></i>
+                                <input asp-for="Input.UserName"
+                                       class="form-control auth-input"
+                                       autocomplete="username"
+                                       aria-required="true"
+                                       placeholder="Въведете потребителско име" />
+                            </div>
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="auth-form-group">
+                            <label asp-for="Input.Password" class="auth-label">Парола</label>
+                            <div class="auth-input-wrapper">
+                                <i class="bi bi-lock"></i>
+                                <input asp-for="Input.Password"
+                                       class="form-control auth-input"
+                                       autocomplete="current-password"
+                                       aria-required="true"
+                                       placeholder="Въведете парола" />
+                            </div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <label class="auth-check">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            <span>Запомни ме</span>
+                        </label>
+
+                        <button id="login-submit" type="submit" class="btn btn-primary auth-submit-btn">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            Вход
+                        </button>
+
+                        <div class="auth-links">
+                            <a id="forgot-password" asp-page="./ForgotPassword">Забравена парола?</a>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Създай нов акаунт</a>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Изпрати потвърждение отново</a>
+                        </div>
+                    </form>
+
+                    @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                    {
+                        <form id="external-account"
+                              asp-page="./ExternalLogin"
+                              asp-route-returnUrl="@Model.ReturnUrl"
+                              method="post"
+                              class="external-login-buttons">
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit" class="btn btn-outline-primary auth-external-btn" name="provider" value="@provider.Name">
+                                    Вход с @provider.DisplayName
+                                </button>
+                            }
+                        </form>
+                    }
+                </section>
+
+                <section class="auth-info-card">
+                    <span class="auth-section-label">
+                        <i class="bi bi-stars"></i>
+                        Морски Изглед
+                    </span>
+
+                    <h2>Защо да изберете нас?</h2>
+
+                    <div class="auth-benefits">
+                        <div>
+                            <i class="bi bi-water"></i>
+                            <span>Луксозни стаи с морска панорама</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Бърза и лесна резервация</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-gift"></i>
+                            <span>Специални оферти за потребители</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-heart"></i>
+                            <span>Уютна атмосфера и отлично обслужване</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a asp-controller="Home" asp-action="Plan">Схема</a>
+                <a asp-controller="Home" asp-action="About">За нас</a>
+                <a asp-controller="Reservations" asp-action="IndexReservation">Резервация</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

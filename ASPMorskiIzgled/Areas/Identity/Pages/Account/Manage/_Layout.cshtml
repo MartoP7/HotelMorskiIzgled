@@ -1,4 +1,4 @@
-﻿@{
+﻿@* @{
     if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
     {
         Layout = parentLayout.ToString();
@@ -31,6 +31,101 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+} *@
+
+@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<div class="manage-page">
+    <div class="manage-overlay"></div>
+
+    <div class="manage-container">
+        <div class="manage-card">
+
+            <div class="manage-header">
+                <div>
+                    <h1>Моят профил</h1>
+                    <p>Управлявайте своя акаунт, контактна информация и настройки.</p>
+                </div>
+            </div>
+
+            <div class="manage-layout">
+                <aside class="manage-sidebar">
+                    <div class="manage-sidebar-title">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Настройки</span>
+                    </div>
+
+                    <partial name="_ManageNav" />
+                </aside>
+
+                <section class="manage-content">
+                    @RenderBody()
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a asp-controller="Home" asp-action="Plan">Схема</a>
+                <a asp-controller="Home" asp-action="About">За нас</a>
+                <a asp-controller="Reservations" asp-action="IndexReservation">Резервация</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
 
 @section Scripts {
     @RenderSection("Scripts", required: false)

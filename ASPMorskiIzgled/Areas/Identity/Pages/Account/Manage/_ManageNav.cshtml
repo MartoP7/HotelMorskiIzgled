@@ -1,4 +1,4 @@
-﻿@inject SignInManager<Client> SignInManager
+﻿@* @inject SignInManager<Client> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
@@ -37,6 +37,60 @@
     <li>
         <a class="manage-nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
             Лични данни
+        </a>
+    </li>
+</ul> *@
+
+
+@inject SignInManager<Client> SignInManager
+
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<ul class="manage-nav-list">
+    <li>
+        <a class="manage-nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">
+            <i class="bi bi-person"></i>
+            <span>Профил</span>
+        </a>
+    </li>
+
+    <li>
+        <a class="manage-nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">
+            <i class="bi bi-envelope"></i>
+            <span>Имейл</span>
+        </a>
+    </li>
+
+    <li>
+        <a class="manage-nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">
+            <i class="bi bi-lock"></i>
+            <span>Парола</span>
+        </a>
+    </li>
+
+    @if (hasExternalLogins)
+    {
+        <li>
+            <a id="external-login" class="manage-nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Външни входове</span>
+            </a>
+        </li>
+    }
+
+    <li>
+        <a class="manage-nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">
+            <i class="bi bi-shield-lock"></i>
+            <span>Двуфакторна защита</span>
+        </a>
+    </li>
+
+    <li>
+        <a class="manage-nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
+            <i class="bi bi-file-earmark-person"></i>
+            <span>Лични данни</span>
         </a>
     </li>
 </ul>

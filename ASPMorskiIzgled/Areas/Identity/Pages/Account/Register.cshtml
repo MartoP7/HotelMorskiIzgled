@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model RegisterModel
 @{
     ViewData["Title"] = "Регистрация";
@@ -149,6 +149,215 @@
                 <a asp-controller="Reservations" asp-action="Create">Резервация</a>
             </div>
 
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Морски Изглед. Всички права запазени.
+        </div>
+    </div>
+</footer>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@
+
+
+
+
+@page
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="auth-page">
+    <div class="auth-overlay"></div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <div class="auth-header">
+                <h1>Създай акаунт</h1>
+                <p>Регистрирай се, за да резервираш по-бързо и удобно.</p>
+            </div>
+
+            <div class="auth-layout register-auth-layout">
+                <section class="auth-form-card">
+                    <div class="auth-section-label">
+                        <i class="bi bi-person-plus"></i>
+                        Нова регистрация
+                    </div>
+
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+
+                        <div class="auth-register-grid">
+                            <div class="auth-form-group">
+                                <label asp-for="Input.Email" class="auth-label">Имейл</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-envelope"></i>
+                                    <input asp-for="Input.Email" class="form-control auth-input" autocomplete="username" aria-required="true" placeholder="Имейл" />
+                                </div>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group">
+                                <label asp-for="Input.UserName" class="auth-label">Потребителско име</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-person"></i>
+                                    <input asp-for="Input.UserName" class="form-control auth-input" autocomplete="username" aria-required="true" placeholder="Потребителско име" />
+                                </div>
+                                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group">
+                                <label asp-for="Input.FirstName" class="auth-label">Име</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-person-badge"></i>
+                                    <input asp-for="Input.FirstName" class="form-control auth-input" aria-required="true" placeholder="Име" />
+                                </div>
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group">
+                                <label asp-for="Input.LastName" class="auth-label">Фамилия</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <input asp-for="Input.LastName" class="form-control auth-input" aria-required="true" placeholder="Фамилия" />
+                                </div>
+                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group">
+                                <label asp-for="Input.PhoneNumber" class="auth-label">Телефон</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-telephone"></i>
+                                    <input asp-for="Input.PhoneNumber" class="form-control auth-input" aria-required="true" placeholder="Телефон" />
+                                </div>
+                                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group">
+                                <label asp-for="Input.Password" class="auth-label">Парола</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-lock"></i>
+                                    <input asp-for="Input.Password" class="form-control auth-input" autocomplete="new-password" aria-required="true" placeholder="Парола" />
+                                </div>
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="auth-form-group auth-full-width">
+                                <label asp-for="Input.ConfirmPassword" class="auth-label">Потвърди парола</label>
+                                <div class="auth-input-wrapper">
+                                    <i class="bi bi-shield-lock"></i>
+                                    <input asp-for="Input.ConfirmPassword" class="form-control auth-input" autocomplete="new-password" aria-required="true" placeholder="Потвърди парола" />
+                                </div>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="btn btn-primary auth-submit-btn">
+                            <i class="bi bi-person-plus"></i>
+                            Регистрация
+                        </button>
+
+                        <div class="auth-links">
+                            <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Вече имаш акаунт? Вход</a>
+                        </div>
+                    </form>
+
+                    @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                    {
+                        <form id="external-account"
+                              asp-page="./ExternalLogin"
+                              asp-route-returnUrl="@Model.ReturnUrl"
+                              method="post"
+                              class="external-login-buttons">
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit" class="btn btn-outline-primary auth-external-btn" name="provider" value="@provider.Name">
+                                    Регистрация с @provider.DisplayName
+                                </button>
+                            }
+                        </form>
+                    }
+                </section>
+
+                <section class="auth-info-card">
+                    <span class="auth-section-label">
+                        <i class="bi bi-gift"></i>
+                        Предимства
+                    </span>
+
+                    <h2>Предимства при регистрация</h2>
+
+                    <div class="auth-benefits">
+                        <div>
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>По-бързо резервиране</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-tags"></i>
+                            <span>Достъп до специални оферти</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-clock-history"></i>
+                            <span>Преглед на история на резервации</span>
+                        </div>
+
+                        <div>
+                            <i class="bi bi-chat-dots"></i>
+                            <span>По-лесна комуникация с хотела</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-overlay"></div>
+
+    <div class="container footer-content">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📞 +359 888 123 456</p>
+                <p>📧 info@morskigled.bg</p>
+                <p>📍 Несебър, България</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Социални мрежи</h3>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/facebook.png" />
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/instagram.png" />
+                    <span>Instagram</span>
+                </a>
+
+                <a href="#" class="social-link">
+                    <img src="~/images/icons/tiktok.png" />
+                    <span>TikTok</span>
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <a asp-controller="Home" asp-action="Index">Начало</a>
+                <a asp-controller="Home" asp-action="Plan">Схема</a>
+                <a asp-controller="Home" asp-action="About">За нас</a>
+                <a asp-controller="Reservations" asp-action="IndexReservation">Резервация</a>
+            </div>
         </div>
 
         <div class="footer-bottom">
