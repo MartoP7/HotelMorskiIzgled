@@ -6,6 +6,7 @@ wwwroot\images\about3.png
 wwwroot\images\beach-footer.jpg
 wwwroot\images\beach.jpg
 wwwroot\images\floors\floor1.jpg
+wwwroot\images\floors\floor2.jpg
 wwwroot\images\floors\floorP.jpg
 wwwroot\images\hotel.png
 wwwroot\images\icons\ac.png
@@ -25,6 +26,13 @@ wwwroot\images\icons\towels.png
 wwwroot\images\icons\tv.png
 wwwroot\images\icons\wifi.png
 wwwroot\images\logo.png
+wwwroot\images\rooms\apartment-1.jpg
+wwwroot\images\rooms\double-1.jpg
+wwwroot\images\rooms\double-2.jpg
+wwwroot\images\rooms\single-1.jpg
+wwwroot\images\rooms\single-2.jpg
+wwwroot\images\rooms\studio-1.jpg
+wwwroot\images\rooms\studio-2.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -86,7 +94,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\images\floors\floor2.jpg
 C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\wwwroot\css\site.css
 C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Admin\Desktop\HotelMorskiIzgled-master\ASPMorskiIzgled\wwwroot\lib\jquery\dist\jquery.slim.min.map

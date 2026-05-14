@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\views\\home\\plan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\views\\home\\plan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|c:\\users\\admin\\desktop\\hotelmorskiizgled-master\\aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{6D1035AD-6D30-4749-927A-3AFDDB796450}|ASPMorskiIzgled\\ASPMorskiIzgled.csproj|solutionrelative:aspmorskiizgled\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
@@ -22,17 +14,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\wwwroot\\css\\site.css",
               "RelativeToolTip": "ASPMorskiIzgled\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-05-11T09:17:30.564Z",
               "IsPinned": true,
@@ -41,32 +33,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Plan.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Home\\Plan.cshtml",
-              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Views\\Home\\Plan.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Views\\Home\\Plan.cshtml",
-              "RelativeToolTip": "ASPMorskiIzgled\\Views\\Home\\Plan.cshtml",
-              "ViewState": "AgIAANkAAAAAAAAAAAAAAOQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-13T22:51:16.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Program.cs",
-              "RelativeDocumentMoniker": "ASPMorskiIzgled\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\HotelMorskiIzgled-master\\ASPMorskiIzgled\\Program.cs",
-              "RelativeToolTip": "ASPMorskiIzgled\\Program.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwDQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T22:49:21.851Z",
-              "EditorCaption": ""
             }
           ]
         },

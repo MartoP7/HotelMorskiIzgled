@@ -974,7 +974,7 @@ a {
 
 .room-104 {
     top: 65%;
-    left: 71%;
+    left: 69%;
 }
 
 .room-105 {
@@ -996,6 +996,45 @@ a {
     top: 47%;
     left: 32%;
 }
+
+
+
+.room-201 {
+    top: 29%;
+    left: 71%;
+}
+
+.room-202 {
+    top: 29%;
+    left: 85%;
+}
+
+.room-203 {
+    top: 65%;
+    left: 85%;
+}
+
+.room-204 {
+    top: 65%;
+    left: 64%;
+}
+
+
+.room-206 {
+    top: 67%;
+    left: 43%;
+}
+
+.room-207 {
+    top: 55%;
+    left: 18%;
+}
+
+.room-208 {
+    top: 47%;
+    left: 32%;
+}
+
 
 @media (max-width: 767.98px) {
     .room-hotspot {

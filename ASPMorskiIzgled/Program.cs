@@ -56,11 +56,11 @@ namespace ASPMorskiIzgled
 
 
 
-            //using (var scope = app.Services.CreateScope())
-            //{
-            //    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            //    DbSeeder.SeedRooms(context);
-            //}
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                DbSeeder.SeedRooms(context);
+            }
 
 
 
