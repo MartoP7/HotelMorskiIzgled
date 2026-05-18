@@ -1,145 +1,4 @@
-﻿@* @{
-    ViewData["Title"] = "Схема на хотела";
-}
-
-<section class="floor-plan-page">
-    <div class="hotel-plan-bg">
-        <div class="hotel-plan-container">
-    <div class="container">
-        <div class="section-heading">
-            <h1>Схема на хотела</h1>
-            <p>Изберете етаж, за да видите разпределението.</p>
-        </div>
-
-        <div class="floor-layout">
-            <aside class="floor-sidebar">
-                <h4>Етажи:</h4>
-                <button class="floor-btn active" data-floor="floorP">Партер</button>
-                <button class="floor-btn" data-floor="floor1">Етаж 1</button>
-                <button class="floor-btn" data-floor="floor2">Етаж 2</button>
-                <button class="floor-btn" data-floor="floor3">Етаж 3</button>
-                <button class="floor-btn" data-floor="floor4">Етаж 4</button>
-                <button class="floor-btn" data-floor="floor5">Етаж 5</button>
-                <button class="floor-btn" data-floor="floor6">Етаж 6</button>
-            </aside>
-
-            <div class="floor-display">
-                <div class="floor-panel active" id="floorP">
-                    <h2>Партер</h2>
-                    <img src="~/images/floors/floorP.jpg" alt="Схема на партер" class="floor-image" />
-                </div>
-                <div class="floor-panel" id="floor1">
-                    <h2>Етаж 1</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 1" class="floor-image" />
-                </div>
-
-                <div class="floor-panel" id="floor2">
-                    <h2>Етаж 2</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 2" class="floor-image" />
-                </div>
-
-                <div class="floor-panel" id="floor3">
-                    <h2>Етаж 3</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 3" class="floor-image" />
-                </div>
-
-                <div class="floor-panel" id="floor4">
-                    <h2>Етаж 4</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 4" class="floor-image" />
-                </div>
-
-                <div class="floor-panel" id="floor5">
-                    <h2>Етаж 5</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 5" class="floor-image" />
-                </div>
-
-                <div class="floor-panel" id="floor6">
-                    <h2>Етаж 6</h2>
-                    <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 6" class="floor-image" />
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
-    </div>
-</section>
-
-<footer class="site-footer">
-    <div class="footer-overlay"></div>
-
-    <div class="container footer-content">
-        <div class="footer-grid">
-
-            <!-- Контакти -->
-            <div class="footer-section">
-                <h3>Контакти</h3>
-                <p>📞 +359 888 123 456</p>
-                <p>📧 info@morskigled.bg</p>
-                <p>📍 Несебър, България</p>
-            </div>
-
-            <!-- Социални -->
-            <div class="footer-section">
-                <h3>Социални мрежи</h3>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/facebook.png" />
-                    <span>Facebook</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/instagram.png" />
-                    <span>Instagram</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/tiktok.png" />
-                    <span>TikTok</span>
-                </a>
-            </div>
-
-            <!-- Навигация -->
-            <div class="footer-section">
-                <h3>Навигация</h3>
-                <a asp-controller="Home" asp-action="Index">Начало</a>
-                <a href="#hotel-plan">Схема</a>
-                <a href="#about-hotel">За нас</a>
-                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 Морски Изглед. Всички права запазени.
-        </div>
-    </div>
-</footer>
-
-
-@section Scripts {
-    <script>
-        const floorButtons = document.querySelectorAll('.floor-btn');
-        const floorPanels = document.querySelectorAll('.floor-panel');
-
-        floorButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const floorId = this.getAttribute('data-floor');
-
-                floorButtons.forEach(btn => btn.classList.remove('active'));
-                floorPanels.forEach(panel => panel.classList.remove('active'));
-
-                this.classList.add('active');
-                document.getElementById(floorId).classList.add('active');
-            });
-        });
-    </script>
-} *@
-
-
-
-
-
-
+﻿
 @{
     ViewData["Title"] = "Схема на хотела";
 }
@@ -213,7 +72,7 @@
                         <div class="floor-image-wrapper">
                             <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 1" class="floor-image" />
 
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-101">Стая 101</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="1" class="room-hotspot room-101">Стая 101</a>
                             <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-102">Стая 102</a>
                             <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-103">Стая 103</a>
                             <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-104">Стая 104</a>
@@ -233,13 +92,13 @@
                     <div class="floor-image-wrapper">
                         <img src="~/images/floors/floor2.jpg" alt="Схема на етаж 2" class="floor-image" />
 
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-201">Стая 201</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-202">Стая 202</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-203">Стая 203</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-204">Стая 204</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="6" class="room-hotspot room-206">Стая 206</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="7" class="room-hotspot room-207">Стая 207</a>
-                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="8" class="room-hotspot room-208">Стая 208</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="9" class="room-hotspot room-201">Стая 201</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="10" class="room-hotspot room-202">Стая 202</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="11" class="room-hotspot room-203">Стая 203</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="12" class="room-hotspot room-204">Стая 204</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-206">Стая 205</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="14" class="room-hotspot room-207">Стая 206</a>
+                        <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="15" class="room-hotspot room-208">Стая 207</a>
                     </div>
                     </div>
 
@@ -252,14 +111,14 @@
                         <div class="floor-image-wrapper">
                             <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 3" class="floor-image" />
 
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-101">Стая 301</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-102">Стая 302</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-103">Стая 303</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-104">Стая 304</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="5" class="room-hotspot room-105">Стая 305</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="6" class="room-hotspot room-106">Стая 306</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="7" class="room-hotspot room-107">Стая 307</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="8" class="room-hotspot room-108">Стая 308</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="16" class="room-hotspot room-101">Стая 301</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="17" class="room-hotspot room-102">Стая 302</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="18" class="room-hotspot room-103">Стая 303</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="19" class="room-hotspot room-104">Стая 304</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="20" class="room-hotspot room-105">Стая 305</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="21" class="room-hotspot room-106">Стая 306</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="22" class="room-hotspot room-107">Стая 307</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="23" class="room-hotspot room-108">Стая 308</a>
                         </div>
                     </div>
 
@@ -272,14 +131,14 @@
                         <div class="floor-image-wrapper">
                             <img src="~/images/floors/floor1.jpg" alt="Схема на етаж 4" class="floor-image" />
 
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-101">Стая 401</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-102">Стая 402</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-103">Стая 403</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-104">Стая 404</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="5" class="room-hotspot room-105">Стая 405</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="6" class="room-hotspot room-106">Стая 406</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="7" class="room-hotspot room-107">Стая 407</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="8" class="room-hotspot room-108">Стая 408</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="24" class="room-hotspot room-101">Стая 401</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="25" class="room-hotspot room-102">Стая 402</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="26" class="room-hotspot room-103">Стая 403</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="27" class="room-hotspot room-104">Стая 404</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="28" class="room-hotspot room-105">Стая 405</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="29" class="room-hotspot room-106">Стая 406</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="30" class="room-hotspot room-107">Стая 407</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="31" class="room-hotspot room-108">Стая 408</a>
                         </div>
                     </div>
 
@@ -292,13 +151,13 @@
                         <div class="floor-image-wrapper">
                             <img src="~/images/floors/floor2.jpg" alt="Схема на етаж 5" class="floor-image" />
 
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-201">Стая 501</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-202">Стая 502</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-203">Стая 503</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-204">Стая 504</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="6" class="room-hotspot room-206">Стая 506</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="7" class="room-hotspot room-207">Стая 507</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="8" class="room-hotspot room-208">Стая 508</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="32" class="room-hotspot room-201">Стая 501</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="33" class="room-hotspot room-202">Стая 502</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="34" class="room-hotspot room-203">Стая 503</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="35" class="room-hotspot room-204">Стая 504</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="36" class="room-hotspot room-206">Стая 505</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="37" class="room-hotspot room-207">Стая 506</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="38" class="room-hotspot room-208">Стая 507</a>
                         </div>
                     </div>
 
@@ -311,13 +170,13 @@
                         <div class="floor-image-wrapper">
                             <img src="~/images/floors/floor2.jpg" alt="Схема на етаж 6" class="floor-image" />
 
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="13" class="room-hotspot room-201">Стая 601</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="2" class="room-hotspot room-202">Стая 602</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="3" class="room-hotspot room-203">Стая 603</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="4" class="room-hotspot room-204">Стая 604</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="6" class="room-hotspot room-206">Стая 606</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="7" class="room-hotspot room-207">Стая 607</a>
-                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="8" class="room-hotspot room-208">Стая 608</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="39" class="room-hotspot room-201">Стая 601</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="40" class="room-hotspot room-202">Стая 602</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="41" class="room-hotspot room-203">Стая 603</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="42" class="room-hotspot room-204">Стая 604</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="43" class="room-hotspot room-206">Стая 605</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="44" class="room-hotspot room-207">Стая 606</a>
+                            <a asp-controller="Rooms" asp-action="RoomDetails" asp-route-id="45" class="room-hotspot room-208">Стая 607</a>
                         </div>
                     </div>
                 </div>

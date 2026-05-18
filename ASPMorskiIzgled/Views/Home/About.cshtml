@@ -1,350 +1,4 @@
-﻿@* @{
-    ViewData["Title"] = "За нас";
-}
-
-<div class="about-page">
-
-    <div class="about-wrapper">
-
-        <h1 class="about-title">За нас</h1>
-
-        <!-- SECTION 1 -->
-
-        <div class="about-section">
-
-            <div class="about-card text-card">
-
-                <h2>Хотел Морски Изглед</h2>
-
-                <p>
-                    Хотел „Морски Изглед“ предлага уют,
-                    спокойствие и невероятна гледка към морето.
-                </p>
-
-                <p>
-                    Насладете се на модерни стаи,
-                    отлично обслужване и незабравима почивка.
-                </p>
-
-            </div>
-
-            <div class="about-card image-card">
-
-                <img src="~/images/about1.png" alt="Hotel">
-
-            </div>
-
-        </div>
-
-        <!-- SECTION 2 -->
-
-        <div class="about-section reverse">
-
-
-            <div class="about-card text-card">
-
-                <h2>Комфорт и стил</h2>
-
-                <p>
-                    Всяка стая е създадена с внимание към детайла,
-                    за да осигури максимален комфорт.
-                </p>
-
-                <p>
-                    Перфектното място за семейна почивка
-                    или романтичен уикенд.
-                </p>
-
-            </div>
-
-            <div class="about-card image-card">
-
-                <img src="~/images/about2.png" alt="Room">
-
-            </div>
-
-            
-
-        </div>
-
-        <!-- SECTION 3 -->
-
-        <div class="about-section reverse">
-
-
-            <div class="about-card image-card">
-
-                <img src="~/images/about3.png" alt="Room">
-
-            </div>
-
-            <div class="about-card text-card">
-
-                <h2>Комфорт и стил</h2>
-
-                <p>
-                    Всяка стая е създадена с внимание към детайла,
-                    за да осигури максимален комфорт.
-                </p>
-
-                <p>
-                    Перфектното място за семейна почивка
-                    или романтичен уикенд.
-                </p>
-
-            </div>
-
-            
-
-
-
-        </div>
-
-
-    </div>
-
-</div>
-
-<footer class="site-footer">
-    <div class="footer-overlay"></div>
-
-    <div class="container footer-content">
-        <div class="footer-grid">
-
-            <!-- Контакти -->
-            <div class="footer-section">
-                <h3>Контакти</h3>
-                <p>📞 +359 888 123 456</p>
-                <p>📧 info@morskigled.bg</p>
-                <p>📍 Несебър, България</p>
-            </div>
-
-            <!-- Социални -->
-            <div class="footer-section">
-                <h3>Социални мрежи</h3>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/facebook.png" />
-                    <span>Facebook</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/instagram.png" />
-                    <span>Instagram</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/tiktok.png" />
-                    <span>TikTok</span>
-                </a>
-            </div>
-
-            <!-- Навигация -->
-            <div class="footer-section">
-                <h3>Навигация</h3>
-                <a asp-controller="Home" asp-action="Index">Начало</a>
-                <a href="#hotel-plan">Схема</a>
-                <a href="#about-hotel">За нас</a>
-                <a asp-controller="Reservations" asp-action="Create">Резервация</a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 Морски Изглед. Всички права запазени.
-        </div>
-    </div>
-</footer>
- *@
-
-
-
-@* @{
-    ViewData["Title"] = "За нас";
-}
-
-<section class="about-page">
-    <div class="about-overlay"></div>
-
-    <div class="about-container">
-        <div class="about-card-main">
-
-            <div class="about-header">
-                <h1>За нас</h1>
-                <p>Добре дошли в хотел Морски Изглед! <br> Място за спокойствие, комфорт и незабравима почивка край морето.</p>
-            </div>
-
-            <div class="about-section">
-                <div class="about-text-card">
-                    <span class="about-label">
-                        <i class="bi bi-water"></i>
-                        Морски Изглед
-                    </span>
-
-                    <h2>Хотел Морски Изглед</h2>
-
-                    <p>
-                        Хотел „Морски Изглед“ предлага уют, спокойствие и невероятна гледка към морето.
-                        Нашата цел е всеки гост да се почувства удобно, спокойно и специално.
-                    </p>
-
-                    <p>
-                        Насладете се на модерни стаи, отлично обслужване и незабравима почивка
-                        в една приятна морска атмосфера.
-                    </p>
-                </div>
-
-                <div class="about-image-card">
-                    <img src="~/images/about1.png" alt="Хотел Морски Изглед" />
-                </div>
-            </div>
-
-            <div class="about-section reverse">
-                <div class="about-text-card">
-                    <span class="about-label">
-                        <i class="bi bi-stars"></i>
-                        Комфорт
-                    </span>
-
-                    <h2>Комфорт и стил</h2>
-
-                    <p>
-                        Всяка стая е създадена с внимание към детайла, за да осигури максимален комфорт
-                        по време на престоя.
-                    </p>
-
-                    <p>
-                        Подходящо място както за семейна почивка, така и за романтичен уикенд
-                        или кратко бягство от ежедневието.
-                    </p>
-                </div>
-
-                <div class="about-image-card">
-                    <img src="~/images/about2.png" alt="Стая в хотела" />
-                </div>
-            </div>
-
-            <div class="about-section">
-                <div class="about-text-card">
-                    <span class="about-label">
-                        <i class="bi bi-heart"></i>
-                        Преживяване
-                    </span>
-
-                    <h2>Незабравима почивка</h2>
-
-                    <p>
-                        Хотелът съчетава спокойна атмосфера, удобна локация и красиви гледки,
-                        за да направи престоя Ви истински приятен.
-                    </p>
-
-                    <p>
-                        Независимо дали пътувате със семейство, приятели или любим човек,
-                        тук ще откриете място за пълноценна почивка.
-                    </p>
-                </div>
-
-                <div class="about-image-card">
-                    <img src="~/images/about3.png" alt="Почивка край морето" />
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<footer class="site-footer">
-    <div class="footer-overlay"></div>
-
-    <div class="container footer-content">
-        <div class="footer-top">
-            <h2>Хотел Морски Изглед</h2>
-            <p>Комфорт, спокойствие и незабравима почивка край морето.</p>
-        </div>
-
-        <div class="footer-grid">
-
-            <div class="footer-section">
-                <h3>
-                    <i class="bi bi-telephone"></i>
-                    Контакти
-                </h3>
-
-                <p>
-                    <i class="bi bi-phone"></i>
-                    +359 888 123 456
-                </p>
-
-                <p>
-                    <i class="bi bi-envelope"></i>
-                    info@morskigled.bg
-                </p>
-
-                <p>
-                    <i class="bi bi-geo-alt"></i>
-                    Несебър, България
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h3>
-                    <i class="bi bi-share"></i>
-                    Социални мрежи
-                </h3>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/facebook.png" alt="Facebook" />
-                    <span>Facebook</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/instagram.png" alt="Instagram" />
-                    <span>Instagram</span>
-                </a>
-
-                <a href="#" class="social-link">
-                    <img src="~/images/icons/tiktok.png" alt="TikTok" />
-                    <span>TikTok</span>
-                </a>
-            </div>
-
-            <div class="footer-section">
-                <h3>
-                    <i class="bi bi-compass"></i>
-                    Навигация
-                </h3>
-
-                <a asp-controller="Home" asp-action="Index">
-                    <i class="bi bi-house-door"></i>
-                    Начало
-                </a>
-
-                <a asp-controller="Home" asp-action="Plan">
-                    <i class="bi bi-map"></i>
-                    Схема
-                </a>
-
-                <a asp-controller="Home" asp-action="About">
-                    <i class="bi bi-info-circle"></i>
-                    За нас
-                </a>
-
-                <a asp-controller="Rooms" asp-action="IndexReservation">
-                    <i class="bi bi-calendar-check"></i>
-                    Резервация
-                </a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 Морски Изглед. Всички права запазени.
-        </div>
-    </div>
-</footer> *@
-
-
-
+﻿
 @{
     ViewData["Title"] = "За нас";
 }
@@ -384,7 +38,7 @@
                 </div>
 
                 <div class="about-image-card">
-                    <img src="~/images/about1.png" alt="Хотел Морски Изглед" />
+                    <img src="~/images/hotel/hotel1.png" alt="Хотел Морски Изглед" />
                 </div>
             </div>
 
@@ -409,7 +63,7 @@
                 </div>
 
                 <div class="about-image-card">
-                    <img src="~/images/about2.png" alt="Настаняване в хотела" />
+                    <img src="~/images/hotel/hotel3.png" alt="Настаняване в хотела" />
                 </div>
             </div>
 
@@ -434,7 +88,7 @@
                 </div>
 
                 <div class="about-image-card">
-                    <img src="~/images/about3.png" alt="Стая в хотела" />
+                    <img src="~/images/rooms/double-1.jpg" alt="Стая в хотела" />
                 </div>
             </div>
 
@@ -459,7 +113,7 @@
                 </div>
 
                 <div class="about-image-card">
-                    <img src="~/images/about1.png" alt="Паркинг и външни зони" />
+                    <img src="~/images/hotel/hotel6.png" alt="Паркинг и външни зони" />
                 </div>
             </div>
 
@@ -484,7 +138,7 @@
                 </div>
 
                 <div class="about-image-card">
-                    <img src="~/images/about2.png" alt="Ресторант в хотела" />
+                    <img src="~/images/hotel/hotel8.png" alt="Ресторант в хотела" />
                 </div>
             </div>
 
